@@ -34,9 +34,9 @@ export default function Skill({ darkMode }) {
                 : "assets/fotoprofil-removebg-preview.png"
             }
             alt=""
-            className=" px-1 lg:relative lg:left-20"
+            className=" px-1 lg:relative lg:left-20 lg:top-20"
           />
-          <div className=" h-11 bg-background dark:bg-background_Darkmod relative px-5 py-2 bottom-9 mx-1 lg:h-12 lg:px-10 lg:bottom-12 lg:w-1/2">
+          <div className=" h-11 bg-background dark:bg-background_Darkmod relative px-5 py-2 bottom-9 mx-1 lg:h-20 lg:px-10 lg:top-0 lg:w-1/2 ">
             <div className="flex justify-start gap-3 items-center">
               <p className=" w-10">HP</p>
               <div className=" w-full h-2 flex pl-3">
@@ -59,15 +59,15 @@ export default function Skill({ darkMode }) {
             </div>
           </div>
         </div>
-        <div className=" relative h-0 bottom-[50vh] lg:bottom-[60vh]">
-          <div className="">
+        <div className=" -translate-y-80 lg:-translate-y-96 lg:h-60">
+          <div className=" relative bottom-16">
             {isLarge ? (
               <Svg_borderLarge darkMode={darkMode} />
             ) : (
               <Svg_Border darkMode={darkMode} />
             )}
           </div>
-          <div className=" relative bottom-52 flex flex-col w-screen z-0 gap-1 px-5 lg:w-1/2 lg:gap-5 lg:left-1/2 lg:bottom-[85vh]">
+          <div className=" absolute bottom-[17rem] flex flex-col w-screen z-0 gap-1 px-5 lg:w-1/2 lg:gap-5 lg:left-1/2 lg:-bottom-60">
             <div className="flex  items-center justify-between lg:px-8">
               <p>Role</p>
               <div className="flex gap-1">web developer</div>
@@ -151,7 +151,7 @@ export default function Skill({ darkMode }) {
               </div>
             </div>
             {isLarge && (
-              <div className=" text-base">
+              <div className=" text-base h-52">
                 <p>Trivia</p>
                 {detail == "JavaScript" && (
                   <p>

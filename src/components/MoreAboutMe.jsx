@@ -8,7 +8,7 @@ export default function MoreAboutMe({darkMode}) {
   let year = currentDate.getFullYear();
   let age = year - 1999;
   return (
-    <div className=" px-5 w-auto translate-y-9">
+    <div className=" px-5 w-auto translate-y-9 mb-4">
       <div>
       <p className="">
         Hai, aku yon aku seorang web developer, saya lulusan smk akuntansi yang

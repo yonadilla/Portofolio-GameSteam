@@ -20,7 +20,7 @@ export const Navigation = ({ isOpen, toggleOpen, darkMode, isLarge }) => {
     <>
       <AnimatePresence mode="wait">
         {isOpen && (
-          <motion.ul  variants={variants} className=" fixed z-10 lg:top-0 lg:left-0 lg:w-1/4 bottom-0 bg-text dark:bg-nav_Darkmode w-full " initial="closed" animate="open" exit="closed">
+          <motion.ul  variants={variants} className=" fixed z-10 lg:top-0  lg:left-0 lg:w-1/4 bottom-0 bg-text dark:bg-nav_Darkmode w-full " initial="closed" animate="open" exit="closed">
             <MenuItem darkMode={darkMode} toggleOpen={toggleOpen}  isOpen={isOpen} />
           </motion.ul>
         )}

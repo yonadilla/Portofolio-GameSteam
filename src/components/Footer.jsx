@@ -3,7 +3,7 @@ export default function Footer({ darkMode }) {
     <div>
       <footer
         className={
-          " flex justify-center fixed bottom-0 bg-text dark:bg-sidebar_Darkmode w-full"
+          " flex justify-center absolute bottom-0 bg-text dark:bg-sidebar_Darkmode w-full"
         }
       >
         <div className=" flex text-xs items-center py-2 flex-col">
