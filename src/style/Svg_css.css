@@ -1,0 +1,225 @@
+#bgBiru,
+#awan_kanan,
+#awan_kiri,
+#garis,
+#warna,
+#garis_instagram,
+#garis_instagramDalam,
+#garis_linkedin2,
+#garis_github {
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+}
+
+ svg:focus, :focus #bgBiru {
+   opacity: 1;
+}
+
+svg:hover #bgBiru {
+    opacity: 1;
+ }
+
+
+svg:focus, :focus #warna1 {
+    fill: #78a0cf;
+}
+svg:focus, :focus #warna2 {
+    fill:#c4211f;
+}
+svg:focus, :focus #warna3 {
+    fill:#eb4235;
+}
+svg:focus, :focus #warna4 {
+    fill:#f1bc19;
+}
+svg:focus, :focus #warna5 {
+    fill:#9ca74c;
+}
+
+svg:hover #warna1 {
+    fill: #78a0cf;
+}
+svg:hover #warna2 {
+    fill:#c4211f;
+}
+svg:hover #warna3 {
+    fill:#eb4235;
+}
+svg:hover #warna4 {
+    fill:#f1bc19;
+}
+svg:hover #warna5 {
+    fill:#9ca74c;
+}
+
+
+#awan_kanan {
+    opacity: 0;
+    transform: translateX(-40%);
+    -webkit-transform: translateX(-40%);
+    -moz-transform: translateX(-40%);
+    -ms-transform: translateX(-40%);
+    -o-transform: translateX(-40%);
+}
+#awan_kiri {
+    opacity: 0;
+    transform: translateX(40%);
+    -webkit-transform: translateX(40%);
+    -moz-transform: translateX(40%);
+    -ms-transform: translateX(40%);
+    -o-transform: translateX(40%);
+}
+
+
+
+svg:focus, :focus #garis {
+    fill: black;
+}
+svg:hover #garis {
+    stroke: black;
+}
+
+svg:focus, :focus #awan_kanan {
+    opacity: 1;
+    transform: translateX(0%);
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    -o-transform: translateX(0%);
+}
+
+svg:focus, :focus #awan_kiri {
+    opacity: 1;
+    transform: translateX(0%);
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    -o-transform: translateX(0%);
+}
+
+svg:hover #awan_kanan {
+    opacity: 1;
+    transform: translateX(0%);
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    -o-transform: translateX(0%);
+}
+
+svg:hover #awan_kiri {
+    opacity: 1;
+    transform: translateX(0%);
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    -o-transform: translateX(0%);
+}
+
+svg:focus, :focus #warna_instagram1 {
+    fill: #3231c7;
+}
+svg:focus, :focus #warna_instagram2 {
+    fill:#7228ad;
+}
+svg:focus, :focus #warna_instagram3 {
+    fill:#b11e93;
+}
+svg:focus, :focus #warna_instagram4 {
+    fill:#db1a58;
+}
+svg:focus, :focus #warna_instagram5 {
+    fill:#e4273e;
+}
+svg:focus, :focus #warna_instagram6 {
+    fill:#f47c22;
+}svg:focus, :focus #warna_instagram7 {
+    fill:#ef9922;
+}
+
+svg:hover #warna_instagram1 {
+    fill:#3231c7;
+}
+
+svg:hover #warna_instagram2 {
+    fill:#7228ad;
+}
+svg:hover #warna_instagram3 {
+    fill:#b11e93;
+}
+svg:hover #warna_instagram4 {
+    fill:#db1a58;
+}
+svg:hover #warna_instagram5 {
+    fill:#e4273e;
+}
+svg:hover #warna_instagram6 {
+    fill:#f47c22;
+}svg:hover #warna_instagram7 {
+    fill:#ef9922;
+}
+
+
+svg:focus, :focus #garis_instagram {
+    fill: white;
+}
+svg:hover #garis_instagram {
+    fill: white;
+}
+#garis_instagramDalam {
+    fill: white;
+}
+svg:focus, :focus #garis_instagramDalam {
+    fill: white;
+}
+svg:hover #garis_instagramDalam {
+    fill: white;
+}
+
+svg:focus, :focus #garis_linkedin {
+    stroke: #472b29;
+    fill: #472b29;
+}
+
+svg:hover #garis_linkedin {
+    stroke: #472b29;
+}
+
+svg:focus, :focus #garis_linkedin2 {
+    fill: #0000;
+
+}
+
+svg:hover #garis_linkedin2 {
+    fill: #0000;
+}
+
+
+
+svg:focus, :focus #garis_github {
+    fill: white;
+}
+
+svg:hover #garis_github {
+    fill: white;
+}
+
+
+svg:focus, :focus #garis_githubTitik {
+    fill: #472b29;
+}
+
+svg:hover #garis_githubTitik {
+    fill: #472b29;
+}
+
+
+svg:focus, :focus #garis_githubKucing {
+    stroke: #472b29;
+}
+
+svg:hover #garis_githubKucing {
+    stroke: #472b29;
+}

@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  padding: 0;
+  color: #1b263b;
+  background-color: #edf6f9;
+  transition: ease-in-out 0.3s;
+  font-family: 'Sora', sans-serif;
+  min-height: 100vh;
+  position: relative;
+  -webkit-transition: ease-in-out 0.3s;
+  -moz-transition: ease-in-out 0.3s;
+  -ms-transition: ease-in-out 0.3s;
+  -o-transition: ease-in-out 0.3s;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+dialog::backdrop {
+  background: rgba(104, 102, 102, 0.5);
+  transition: opacity 0.3s ease-in-out;
+  -webkit-transition: opacity 0.3s ease-in-out;
+  -moz-transition: opacity 0.3s ease-in-out;
+  -ms-transition: opacity 0.3s ease-in-out;
+  -o-transition: opacity 0.3s ease-in-out;
+}
+
+.dark{
+  color: #e0e1dd;
+  
+  background-color: #0d1b2a;
+  transition: ease-in-out 0.3s ;
+  font-family: 'Sora', sans-serif;
+  -webkit-transition: ease-in-out 0.3s ;
+  -moz-transition: ease-in-out 0.3s ;
+  -ms-transition: ease-in-out 0.3s ;
+  -o-transition: ease-in-out 0.3s ;
+}
