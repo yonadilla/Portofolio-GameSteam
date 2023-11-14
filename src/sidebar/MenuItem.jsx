@@ -24,7 +24,7 @@ const variants = {
 export const MenuItem = ({ isOpen, toggleOpen, darkMode }) => {
   return (
     <>
-      <div className=" flex flex-col justify-center lg:absolute lg:top-60 lg:w-full">
+      <div className=" flex flex-col translate-y-10 translate-x-5 lg:translate-x-0 lg:absolute lg:top-52 lg:w-full">
         <Link onClick={() => toggleOpen()} to={"/"}>
           <motion.li
             variants={variants}
@@ -48,19 +48,6 @@ export const MenuItem = ({ isOpen, toggleOpen, darkMode }) => {
             <motion.div className=" h-10 flex items-center gap-10 w-52">
               <Svg_aboutme darkMode={darkMode} />
               About Me
-            </motion.div>
-          </motion.li>
-        </Link>
-        <Link  onClick={() => toggleOpen()} to={"/exit"} state={{modal : true}} >
-          <motion.li
-            variants={variants}
-            whileTap={{ scale: 0.95 }}
-            className="m-0 w-full my-3 list-none flex justify-center items-center cursor-pointer  hover:bg-sidebar dark:hover:bg-navCurrent_Darkmode"
-           
-          >
-            <motion.div className="h-10 flex items-center gap-10 w-52">
-              <Svg_exit darkMode={darkMode} />
-              Exit
             </motion.div>
           </motion.li>
         </Link>

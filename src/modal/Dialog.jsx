@@ -51,12 +51,12 @@ export default function Dialog({
         className="flex flex-col w-fit"
         ref={ref}
       >
-        <div className=" w-full ">
+        <div className=" w-full">
           <swiper-container
             slides-per-view="1"
             speed="500"
             loop="true"
-            className="swiper-slide-zoomed"
+            className=""
             css-mode="true"
             navigation="true"
             pagination="true"

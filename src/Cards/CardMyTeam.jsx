@@ -13,7 +13,7 @@ export default function CardMyTeam() {
         slider={imgMyTeam.map((modal, id) => {
           return (
             <swiper-slide key={id}>
-              <img src={modal} alt="" className="" />
+              <img src={modal} alt="" className="w-[668px] h-[362px]" />
             </swiper-slide>
           );
         })}

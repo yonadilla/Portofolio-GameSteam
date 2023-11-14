@@ -1,4 +1,3 @@
-import * as React from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { MenuItem } from "./MenuItem";
 
@@ -8,7 +7,7 @@ export const Navigation = ({ isOpen, toggleOpen, darkMode, isLarge }) => {
 
   const variants = {
     open: {
-      height : isLarge ? 1000 : 300,
+      height : isLarge ? 1000 : 350,
       transition: { staggerChildren: 0.07, delayChildren: 0.2 },
     },
     closed: {

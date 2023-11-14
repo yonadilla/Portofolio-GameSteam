@@ -7,7 +7,7 @@ export default function CardProject(props) {
             slides-per-view="1"
             speed="500"
             loop="true"
-            className="swiper-slide-zoomed"
+            className=""
             css-mode="true"
             navigation="true"
             pagination="true"

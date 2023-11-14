@@ -9,16 +9,11 @@ export default function AboutmePage({ darkMode }) {
   return (
     <>
       <motion.div
-        initial={{ y: -100 }}
-        animate={{ y: 1000, transition: { type: "spring", duration: 2 } }}
-        className=" fixed z-50 top-0 bottom-0 left-0 right-0 w-full h-full bg-text dark:bg-background_Darkmod"
-      />
-      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         className=""
       >
-        <nav className="mt-20 lg:mt-0 lg:h-full">
+        <nav className="mt-10 lg:mt-0 lg:h-full">
           <ul className="list-none flex justify-center gap-3 lg:pt-9">
             <li
               onClick={() => setCurentPage(0)}
@@ -44,8 +39,8 @@ export default function AboutmePage({ darkMode }) {
         </nav>
         {curentPage == 0 && (
           <motion.div
-            initial={{ x: -100, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
+          initial={{ opacity: 0 }}
+          animate={{opacity: 1}}
             className=""
           >
             <Skill darkMode={darkMode} />
@@ -53,8 +48,8 @@ export default function AboutmePage({ darkMode }) {
         )}
         {curentPage == 1 && (
           <motion.div
-            initial={{ x: -100, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
+          initial={{ opacity: 0 }}
+          animate={{opacity: 1}}
           >
             <MoreAboutMe darkMode={darkMode} />
           </motion.div>

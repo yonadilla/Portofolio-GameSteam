@@ -91,16 +91,8 @@ export default function Home({ darkMode, setDarkMode }) {
     setIsOpen(false);
   });
 
-
-
-
   return (
     <>
-      <motion.div
-        initial={{ y: -100 }}
-        animate={{ y: 1000, transition: { type: "spring", duration: 2 } }}
-        className=" fixed z-50 top-0 bottom-0 left-0 right-0 w-full h-full bg-text dark:bg-background_Darkmod"
-      />
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -141,16 +133,6 @@ export default function Home({ darkMode, setDarkMode }) {
               </button>
               <button
                 className={
-                  query == "Java"
-                    ? "bg-navCurrent dark:bg-navCurrent_Darkmode px-2 py-1 rounded-lg cursor-pointer text-white"
-                    : "bg-nav px-2 dark:bg-nav_Darkmode py-1 rounded-lg cursor-pointer text-black"
-                }
-                onClick={() => handleFilter("Java")}
-              >
-                Java{" "}
-              </button>
-              <button
-                className={
                   query == "Others"
                     ? "bg-navCurrent dark:bg-navCurrent_Darkmode px-2 py-1 rounded-lg cursor-pointer text-white"
                     : "bg-nav px-2 dark:bg-nav_Darkmode py-1 rounded-lg cursor-pointer text-black"
@@ -161,26 +143,25 @@ export default function Home({ darkMode, setDarkMode }) {
               </button>
             </div>
           )}
-          <nav className=" flex flex-col items-end mt-5 lg:mr-48 lg:h-10" ref={scope}>
-            <div className=" absolute top-8">
-              <div className=" flex items-center gap-2 h-auto">
+          <nav
+            className=" flex justify-end lg:flex-col mt-5 lg:mr-48 lg:h-10"
+            ref={scope}
+          >
+            <div className=" absolute top-8 flex items-center lg:right-40">
+              <div className=" flex items-center gap-3 h-auto">
                 <div className=" mt-2">
                   <button onClick={() => setDarkMode(!darkMode)}>
                     {darkMode ? <Svg_darkmode /> : <Svg_lightmode />}
                   </button>
                 </div>
-                <div className="">
+                <div className="pr-2">
                   <Volume darkMode={darkMode} />
                 </div>
               </div>
               {!isLarge ? (
                 <div ref={filterRef}>
                   <button
-                    className={
-                      darkMode
-                        ? "button border-solid border-white border w-32 text-white"
-                        : "button border-solid border-black border w-32 text-black"
-                    }
+                    className="button border-solid border-black border w-32 text-black dark:text-white  dark:border-white"
                     onClick={() => setIsOpen(!isOpen)}
                   >
                     {query}
@@ -206,9 +187,7 @@ export default function Home({ darkMode, setDarkMode }) {
                 clipPath: "inset(10% 50% 90% 50% round 10px)",
               }}
               className={
-                darkMode
-                  ? " translate-y-5 p-3 w-48 z-10 bg-black"
-                  : " translate-y-5 p-3 w-48 z-10 bg-white "
+                " translate-y-20 p-3 w-48 z-10 bg-white dark:bg-black "
               }
             >
               <div>
@@ -257,7 +236,7 @@ export default function Home({ darkMode, setDarkMode }) {
           <div className="">
             <motion.div
               layout
-              className=" lg:relative  lg:whitespace-nowrap lg:overflow-auto"
+              className=" pb-28 h-fit lg:relative lg:whitespace-nowrap lg:overflow-auto"
             >
               <AnimatePresence>
                 {DataModal.filter((modal) =>

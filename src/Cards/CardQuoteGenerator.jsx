@@ -14,7 +14,7 @@ export default function CardQuoteGenerator() {
         slider={imgQuote.map((modal, id) => {
             return (
               <swiper-slide key={id}>
-                <img src={modal} alt="" className="" />
+                <img src={modal} alt="" className="w-[668px] h-[362px]" />
               </swiper-slide>
             );
           })}

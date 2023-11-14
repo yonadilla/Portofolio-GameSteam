@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import Svg_volume from "../svg/Svg_volume";
 import { AnimatePresence, motion } from "framer-motion";
 import { useSessionStorage } from "../Hooks/useStorage";
