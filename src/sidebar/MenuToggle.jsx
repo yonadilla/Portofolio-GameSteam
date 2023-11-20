@@ -14,7 +14,7 @@ export const MenuToggle = ({ isOpen, darkMode, toggleOpen }) => {
   return (
     <button
       onClick={() => toggleOpen()}
-      className=" outline-none border-none bg-text select-none cursor-pointer fixed lg:absolute bottom-12 right-[44%] z-50 px-3 py-2 lg:top-5 lg:left-4 lg:w-14 lg:h-14 lg:rounded-e-3xl dark:bg-nav_Darkmode"
+      className=" outline-none border-none bg-text select-none cursor-pointer fixed lg:absolute bottom-12 right-[45vw] z-50 px-3 py-2 lg:top-5 lg:left-4 lg:w-14 lg:h-14 lg:rounded-e-3xl dark:bg-nav_Darkmode"
     >
       <svg width="23"  height="23" viewBox="0 0 23 23">
         <Path

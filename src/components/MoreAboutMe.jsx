@@ -3,30 +3,28 @@ import SvgGmail from "../svg/SvgGmail";
 import SvgInstagram from "../svg/SvgInstagram";
 import SvgLinkIdn from "../svg/SvgLinkIdn";
 
-export default function MoreAboutMe({darkMode}) {
-  let currentDate = new Date();
-  let year = currentDate.getFullYear();
-  let age = year - 1999;
+
+export default function MoreAboutMe({ darkMode, t }) {
+
+
   return (
-    <div className=" px-5 w-auto translate-y-9 mb-4">
+    <div className=" px-5 w-auto pt-5">
       <div>
-      <p className="">
-        Hai, aku yon aku seorang web developer, saya lulusan smk akuntansi yang
-        sekarang berumur {age} tahun dan ingin terjun ke dunia coding yang mana
-        sudah impian saya sejak dulu. berdomisili di blora, saya memiliki
-        semangat yang besar dalam belajar secara otodidak dan secara serius
-        ingin mendalami dunia coding
-      </p>
+        <p className="pb-3">
+          {t('aboutme')}
+        </p>
+        <p>
+          {t('aboutme2')}
+        </p>
       </div>
-      <div className="pt-9">
-      <p>
-        jika teman-teman ada pertanyaan atau sekedar ingin mengobrol jangan ragu
-        hubungi contact di bawah ini
-      </p>
-        <p className=" text-3xl pt-4">Contact me</p>
-        <div className=" flex w-auto lg:w-1/2">
+      <div className="pt-5">
+        <p>
+          {t('contacme')}
+        </p>
+        <p className=" text-3xl mt-5">Contact me</p>
+        <div className=" flex w-auto lg:w-1/2 lg:h-1/2 pb-20 z-0">
           <div data-tooltip="Gmail">
-            <SvgGmail darkMode={darkMode} />
+            <SvgGmail darkMode={darkMode} t={t} />
           </div>
           <div data-tooltip="Instagram">
             <SvgInstagram darkMode={darkMode} />

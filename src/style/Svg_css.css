@@ -22,7 +22,6 @@ svg:hover #bgBiru {
     opacity: 1;
  }
 
-
 svg:focus, :focus #warna1 {
     fill: #78a0cf;
 }

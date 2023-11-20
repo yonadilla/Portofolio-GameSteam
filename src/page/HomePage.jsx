@@ -23,16 +23,17 @@ import CardGameTicTac from "../Cards/CardGameTicTac";
 import CardMyTeam from "../Cards/CardMyTeam";
 import CardNotFound from "../Cards/CardNotFound";
 import CardInterior from "../Cards/CardInterior";
+import ChangeLng from "../components/ChangeLng";
 
 register();
 
-export default function Home({ darkMode, setDarkMode }) {
+export default function Home({ darkMode, setDarkMode, t }) {
   const [isOpen, setIsOpen] = useState(false);
   const filterRef = useRef();
   const [query, setQuery] = useState("All");
   const [modal, setModal] = useState(0);
   const [card, setCard] = useState(1);
-  const isLarge = useMediaQuery("(min-width: 1280px)");
+  const isLarge = useMediaQuery("(min-width: 1024px)");
 
   useEffect(() => {
     setCard(
@@ -91,6 +92,11 @@ export default function Home({ darkMode, setDarkMode }) {
     setIsOpen(false);
   });
 
+  useEffect(() => {
+    if (modal !== 0) {
+      document.body.style.overflow = "hidden"
+    } else document.body.style.overflow = ""
+  },[modal])
   return (
     <>
       <motion.div
@@ -154,14 +160,14 @@ export default function Home({ darkMode, setDarkMode }) {
                     {darkMode ? <Svg_darkmode /> : <Svg_lightmode />}
                   </button>
                 </div>
-                <div className="pr-2">
-                  <Volume darkMode={darkMode} />
+                <div className=" pr-2">
+                  <ChangeLng />
                 </div>
               </div>
               {!isLarge ? (
                 <div ref={filterRef}>
                   <button
-                    className="button border-solid border-black border w-32 text-black dark:text-white  dark:border-white"
+                    className=" border-solid border-black flex rounded-lg justify-between px-2 items-center border w-32 text-black dark:text-white  dark:border-white"
                     onClick={() => setIsOpen(!isOpen)}
                   >
                     {query}
@@ -180,7 +186,6 @@ export default function Home({ darkMode, setDarkMode }) {
                 </div>
               ) : null}
             </div>
-
             <ul
               style={{
                 pointerEvents: isOpen ? "auto" : "none",
@@ -194,49 +199,110 @@ export default function Home({ darkMode, setDarkMode }) {
                 <li onClick={() => handleFilter("All")}>All </li>
                 <li onClick={() => handleFilter("ReactJS")}>React js</li>
                 <li onClick={() => handleFilter("JavaScript")}>JavaScript</li>
-                <li onClick={() => handleFilter("Java")}>Java </li>
                 <li onClick={() => handleFilter("Others")}>Others</li>
               </div>
             </ul>
           </nav>
-          {isLarge && (
-            <div>
-              {card == 1 && (
-                <div className=" px-5 ">
-                  <CardPortofolio />
-                </div>
-              )}
-              {card == 2 && (
-                <div className=" px-5 ">
-                  <CardGameTicTac />
-                </div>
-              )}
-              {card == 3 && (
-                <div className=" px-5 ">
-                  <CardMyTeam />
-                </div>
-              )}
-              {card == 4 && (
-                <div className=" px-5 ">
-                  <CardQuoteGenerator />
-                </div>
-              )}
-              {card == 5 && (
-                <div className=" px-5 ">
-                  <CardNotFound />
-                </div>
-              )}
-              {card == 6 && (
-                <div className=" relative top-24 px-5 ">
-                  <CardInterior />
-                </div>
-              )}
-            </div>
-          )}
+          <div className=" lg:h-[410px]">
+            {isLarge && (
+              <div className="">
+                {card == 1 && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{
+                      opacity: 1,
+                      transition: {
+                        type: "ease",
+                        duration: 1,
+                      },
+                    }}
+                    className=" px-5 "
+                  >
+                    <CardPortofolio t={t} />
+                  </motion.div>
+                )}
+                {card == 2 && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{
+                      opacity: 1,
+                      transition: {
+                        type: "ease",
+                        duration: 1,
+                      },
+                    }}
+                    className=" px-5 "
+                  >
+                    <CardGameTicTac t={t} />
+                  </motion.div>
+                )}
+                {card == 3 && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{
+                      opacity: 1,
+                      transition: {
+                        type: "ease",
+                        duration: 1,
+                      },
+                    }}
+                    className=" px-5 "
+                  >
+                    <CardMyTeam t={t} />
+                  </motion.div>
+                )}
+                {card == 4 && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{
+                      opacity: 1,
+                      transition: {
+                        type: "ease",
+                        duration: 1,
+                      },
+                    }}
+                    className=" px-5 "
+                  >
+                    <CardQuoteGenerator t={t} />
+                  </motion.div>
+                )}
+                {card == 5 && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{
+                      opacity: 1,
+                      transition: {
+                        type: "ease",
+                        duration: 1,
+                      },
+                    }}
+                    className=" px-5 "
+                  >
+                    <CardNotFound t={t} />
+                  </motion.div>
+                )}
+                {card == 6 && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{
+                      opacity: 1,
+                      transition: {
+                        type: "ease",
+                        duration: 1,
+                      },
+                    }}
+                    className="px-5 "
+                  >
+                    <CardInterior t={t} />
+                  </motion.div>
+                )}
+              </div>
+            )}
+          </div>
           <div className="">
             <motion.div
               layout
-              className=" pb-28 h-fit lg:relative lg:whitespace-nowrap lg:overflow-auto"
+              className=" pb-28 h-fit lg:relative lg:whitespace-nowrap lg:overflow-auto "
             >
               <AnimatePresence>
                 {DataModal.filter((modal) =>
@@ -252,7 +318,7 @@ export default function Home({ darkMode, setDarkMode }) {
                       }}
                       exit={{ opacity: 0 }}
                       key={modal.id}
-                      className=" py-3 lg:w-64 lg:inline-block lg:px-5"
+                      className=" py-3 lg:w-64 lg:inline-block lg:scroll-ml-5 lg:px-5 lg:snap-start"
                     >
                       <p>{modal.Title}</p>
                       <button>
@@ -276,11 +342,9 @@ export default function Home({ darkMode, setDarkMode }) {
           <AnimatePresence mode="wait">
             {modal == 1 ? (
               <Dialog
-                Title={"Portofolio Pertama"}
+                Title={"First Portofolio"}
                 TechStack={"HTML CSS Tailwindcss daisy-ui React JS"}
-                detail={
-                  "ini adalah project portofolio saya setelah belajar React js selama satu bulan, Tujuan saya membuat project ini adalah meng-test pengetahuan saya tentang React js yang sudah saya pelajari. Hooks yang saya pakai hanya useState, useEfffet, dan useInView dan dari project  ini saya belajar penggunaan useInView untuk membuat animasi saat elemen terlihat di layar dan library yang saya pakai daisy-ui untuk membuat sideBar"
-                }
+                detail={t('detail_portofolio')}
                 slider={imagePortofolio.map((modal) => {
                   return (
                     <swiper-slide key={modal.id}>
@@ -307,9 +371,7 @@ export default function Home({ darkMode, setDarkMode }) {
                     </swiper-slide>
                   );
                 })}
-                detail={
-                  "ini adalah project game tic-tac-to yang saya pelajari dari website official React js. disini saya sedikit memodifikasi menjadi beberapa file terpisah tidak seperti yang ada di tutorial dan dari project ini saya belajar bagaimana mengubungkan value lewat props antar component"
-                }
+                detail={t('detail_tic_tac')}
                 githubUrl={"https://github.com/yonadilla/tic-tac-to"}
                 demoUrl={"https://yonadilla.github.io/tic-tac-to/"}
                 openModal={modal}
@@ -329,9 +391,7 @@ export default function Home({ darkMode, setDarkMode }) {
                     </swiper-slide>
                   );
                 })}
-                detail={
-                  "ini adalah salah satu project pertama yang saya dapat dari https://devchallenges.io/. di project ini saya belajar menggunakan css selector untuk membuat children ke 2 dan 5 sedikit berbeda dari yang lain "
-                }
+                detail={t('detail_my_team')}
                 githubUrl={"https://github.com/yonadilla/my-team"}
                 demoUrl={"https://yonadilla.github.io/my-team/"}
                 openModal={modal}
@@ -351,9 +411,7 @@ export default function Home({ darkMode, setDarkMode }) {
                     </swiper-slide>
                   );
                 })}
-                detail={
-                  "ini adalah yang saya dapat dari https://www.freecodecamp.org/. di project ini saya belajar menggunakan api dan bagaimana cara menampilkan nya "
-                }
+                detail={t('detail_quote')}
                 githubUrl={"https://github.com/yonadilla/quote-random"}
                 demoUrl={"https://yonadilla.github.io/quote-random/"}
                 openModal={modal}
@@ -373,9 +431,7 @@ export default function Home({ darkMode, setDarkMode }) {
                     </swiper-slide>
                   );
                 })}
-                detail={
-                  "ini adalah project pertama yang saya dapat dari https://devchallenges.io/. di project ini saya belajar pertama kali menggunakan html dan css untuk membuat tampilan website yang menarik "
-                }
+                detail={t('detail_not_found')}
                 githubUrl={"https://github.com/yonadilla/404"}
                 demoUrl={"https://yonadilla.github.io/404/"}
                 openModal={modal}
@@ -395,9 +451,7 @@ export default function Home({ darkMode, setDarkMode }) {
                     </swiper-slide>
                   );
                 })}
-                detail={
-                  "ini adalah salah satu project  pertama saya dapat dari https://devchallenges.io/. di project ini saya belajar menggunakan JavaScript untuk membuat sidebar "
-                }
+                detail={t('detail_my_interior')}
                 githubUrl={"https://github.com/yonadilla/interior-challenges"}
                 demoUrl={"https://yonadilla.github.io/interior-challenges/"}
                 openModal={modal}

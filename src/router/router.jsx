@@ -1,14 +1,24 @@
-import { Route, Routes } from 'react-router-dom'
-import Home from '../page/HomePage'
-import AboutmePage from '../page/AboutMePage'
+import { Route, Routes, useLocation } from "react-router-dom";
+import { lazy } from "react";
 
-export default function Router({darkMode, setDarkMode}) {
+const Home = lazy(() => import("../page/HomePage"))
+const AboutmePage = lazy(() => import("../page/AboutMePage"))
+
+export default function Router({ darkMode, setDarkMode, t }) {
+
+  const location = useLocation();
   return (
     <div>
-        <Routes>
-            <Route path='/' element={<Home darkMode={darkMode} setDarkMode={setDarkMode}/>} />
-            <Route path='/aboutme' element={<AboutmePage darkMode={darkMode}/>}/>
+        <Routes location={location} key={location.pathname}>
+          <Route
+            path="/"
+            element={<Home darkMode={darkMode} t={t} setDarkMode={setDarkMode} />}
+          />
+          <Route
+            path="/aboutme"
+            element={<AboutmePage darkMode={darkMode} t={t} />}
+          />
         </Routes>
     </div>
-  )
+  );
 }

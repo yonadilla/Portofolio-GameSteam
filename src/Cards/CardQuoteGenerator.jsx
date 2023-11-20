@@ -1,16 +1,13 @@
-import React from "react";
 import { imgQuote } from "../Data/dataImg";
 import CardProject from "../components/CardProject";
 
-export default function CardQuoteGenerator() {
+export default function CardQuoteGenerator({t}) {
   return (
     <div> 
       <CardProject 
       title={"Quote generator"}
       techStack={"HTML Css React js api"}
-        detail={
-          "ini adalah yang saya dapat dari https://www.freecodecamp.org/. di project ini saya belajar menggunakan api dan bagaimana cara menampilkan nya "
-        }
+        detail={t('detail_tic_tac')}
         slider={imgQuote.map((modal, id) => {
             return (
               <swiper-slide key={id}>

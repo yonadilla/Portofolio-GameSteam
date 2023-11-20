@@ -1,15 +1,13 @@
 import CardProject from "../components/CardProject";
 import { imgMyTeam } from "../Data/dataImg";
 
-export default function CardMyTeam() {
+export default function CardMyTeam({t}) {
   return (
     <div>
       <CardProject
         title={"My team page"}
         techStack={"HTML Css"}
-        detail={
-          "ini adalah salah satu project pertama yang saya dapat dari https://devchallenges.io/. di project ini saya belajar menggunakan css selector untuk membuat children ke 2 dan 5 sedikit berbeda dari yang lain "
-        }
+        detail={t('detail_my_team')}
         slider={imgMyTeam.map((modal, id) => {
           return (
             <swiper-slide key={id}>

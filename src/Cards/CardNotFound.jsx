@@ -2,15 +2,13 @@
 import CardProject from '../components/CardProject';
 import { imgNotFound } from '../Data/dataImg';
 
-export default function CardNotFound() {
+export default function CardNotFound({t}) {
   return (
     <div>
         <CardProject
         title={"Not found page"}
         techStack={"HTML Css"}
-        detail={
-            "ini adalah project pertama yang saya dapat dari https://devchallenges.io/. di project ini saya belajar pertama kali menggunakan html dan css untuk membuat tampilan website yang menarik "
-        }
+        detail={t('detail_not_found')}
         slider={imgNotFound.map((modal, id) => {
           return (
             <swiper-slide key={id}>

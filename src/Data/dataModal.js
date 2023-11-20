@@ -2,7 +2,7 @@ export const DataModal = [
     {
         "id" : 1,
         "modal" : 1,
-        "Title": "Portofolio pertama",
+        "Title": "First Portofolio",
         "techStack" : "ReactJS All",
         "gif" : "assets/website Gif.webp",
         "screenShoot" : "assets/Screenshot website.png"
@@ -42,7 +42,7 @@ export const DataModal = [
     },{
         "id": 6,
         "modal" : 6,
-        "Title" : "Imterior page ",
+        "Title" : "Interior page ",
         "techStack" : "JavaScript All",
         "gif" : "assets/my_interior/interior.webp",
         "screenShoot" : "assets/my_interior/Screenshot (73).png"

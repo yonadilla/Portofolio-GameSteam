@@ -3,7 +3,7 @@ import Skill from "../components/Skill";
 import { motion } from "framer-motion";
 import MoreAboutMe from "../components/MoreAboutMe";
 
-export default function AboutmePage({ darkMode }) {
+export default function AboutmePage({ darkMode, t }) {
   const [curentPage, setCurentPage] = useState(0);
 
   return (
@@ -39,19 +39,31 @@ export default function AboutmePage({ darkMode }) {
         </nav>
         {curentPage == 0 && (
           <motion.div
-          initial={{ opacity: 0 }}
-          animate={{opacity: 1}}
-            className=""
+            initial={{ opacity: 0 }}
+            animate={{
+              opacity: 1,
+              transition: {
+                type: "ease in out",
+                duration: 1,
+              },
+            }}
+            className="px-5"
           >
-            <Skill darkMode={darkMode} />
+            <Skill darkMode={darkMode} t={t} />
           </motion.div>
         )}
         {curentPage == 1 && (
           <motion.div
-          initial={{ opacity: 0 }}
-          animate={{opacity: 1}}
+            initial={{ opacity: 0 }}
+            animate={{
+              opacity: 1,
+              transition: {
+                type: "ease in out",
+                duration: 1,
+              },
+            }}
           >
-            <MoreAboutMe darkMode={darkMode} />
+            <MoreAboutMe darkMode={darkMode} t={t} />
           </motion.div>
         )}
       </motion.div>

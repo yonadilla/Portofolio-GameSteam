@@ -1,15 +1,13 @@
 import CardProject from '../components/CardProject';
 import { imgInterior } from '../Data/dataImg';
 
-export default function CardInterior() {
+export default function CardInterior({t}) {
   return (
     <div>
         <CardProject
         title={"Interior page"}
         techStack={"HTML Css JavaScript"}
-        detail={
-            "ini adalah salah satu project  pertama saya dapat dari https://devchallenges.io/. di project ini saya belajar menggunakan JavaScript untuk membuat sidebar "
-        }
+        detail={t('detail_my_interior')}
         slider={imgInterior.map((modal, id) => {
           return (
             <swiper-slide key={id}>

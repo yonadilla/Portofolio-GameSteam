@@ -2,8 +2,20 @@ import React from "react";
 import { motion } from "framer-motion";
 import "../style/Border.css";
 import "../style/tooltip.css";
+import Svg_JavaScript from "./Svg_JavaScript";
+import Svg_react from "./Svg_react";
+import Svg_tailwindcss from "./Svg_tailwindcss";
+import Svg_framer from "./Svg_framer";
+import Svg_daisyui from "./Svg_daisyui";
+import Svg_vscode from "./Svg_vscode";
+import Svg_figma from "./Svg_figma";
+import Svg_html from "./Svg_html";
+import Svg_css from "./Svg_css";
+import Svg_scss from "./Svg_scss";
+import Svg_git from "./Svg_git";
+import Svg_api from "./Svg_api";
 
-export default function Svg_Border({ darkMode }) {
+export default function Svg_Border({ darkMode, t }) {
   const pathCircleVariants = {
     from: {
       opacity: 0,
@@ -37,7 +49,7 @@ export default function Svg_Border({ darkMode }) {
             initial="from"
             animate="to"
             x1="0"
-            y1="-962.998958"
+            y1="-969.998958"
             x2="0"
             y2="962.998959"
             transform="translate(-9.8091 962.998959)"
@@ -48,11 +60,11 @@ export default function Svg_Border({ darkMode }) {
             variants={pathCircleVariants}
             initial="from"
             animate="to"
-            x1="-544.904547"
+            x1="-555.904547"
             y1="0"
-            x2="544.904547"
+            x2="545.904547"
             y2="0"
-            transform="matrix(1 0 0-1 544.904547 1925.997918)"
+            transform="matrix(1 0 0-1 545.904547 1925.997918)"
             fill="none"
             strokeWidth="3"
           />
@@ -73,9 +85,9 @@ export default function Svg_Border({ darkMode }) {
             initial="from"
             animate="to"
             x1="0"
-            y1="-962.998959"
+            y1="-960.998959"
             x2="0"
-            y2="962.99896"
+            y2="955.99896"
             transform="matrix(-1 0 0 1.008766 1089.809094 962.998595)"
             fill="none"
             strokeWidth="3"
@@ -85,104 +97,72 @@ export default function Svg_Border({ darkMode }) {
             width={"100%"}
             y={50}
           />
-          <g
-            fill={darkMode ? "#e0e1dd" : "#0d1b2a"}
-            transform="translate(50,1400)"
-            fontSize={"40"}
-          >
-            <text>Role</text>
-            <text y={80}>Sihir</text>
-            <text y={160}>Rangkaian Sihir</text>
-            <text y={240}>Arsip Ilmu Sihir</text>
-            <text y={320}>Senjata</text>
-            <text y={400}>Lain</text>
-          </g>
-          <g
-            fill={darkMode ? "#e0e1dd" : "#0d1b2a"}
-            className=""
-            width={"100%"}
-            height={"100%"}
-            transform="translate(850,1300)"
-          >
-            <text fontSize={40} x={-250} y={100}>
-              Front-End Developer
-            </text>
-            <image
-              href="assets/icons/icons8-javascript (1).svg"
-              x={100}
-              y={100}
-              width={"7%"}
-              height={"7%"}
-            />
-            <image
-              href="assets/icons/icons8-react.svg"
-              y={180}
-              width={"7%"}
-              height={"7%"}
-            />
-            <image
-              href="assets/icons/icons8-tailwind-css.svg"
-              x={100}
-              y={180}
-              width={"7%"}
-              height={"7%"}
-            />
-            <image
-              href="assets/icons/framer.svg"
-              y={260}
-              width={"7%"}
-              height={"7%"}
-            />
-            <image
-              href="assets/icons/daisyui-logomark.svg"
-              x={100}
-              y={260}
-              width={"7%"}
-              height={"7%"}
-            />
-            <image
-              href="assets/icons/icons8-visual-studio.svg"
-              x={100}
-              y={340}
-              width={"7%"}
-              height={"7%"}
-            />
-            <image
-              href="assets/icons/cloud-api.svg"
-              x={100}
-              y={420}
-              width={"7%"}
-              height={"7%"}
-            />
-            <image
-              href="assets/icons/icons8-git.svg"
-              x={0}
-              y={420}
-              width={"7%"}
-              height={"7%"}
-            />
-            <image
-              href="assets/icons/icons8-css3 (1).svg"
-              x={-100}
-              y={420}
-              width={"7%"}
-              height={"7%"}
-            />
-            <image
-              href="assets/icons/icons8-html (1).svg"
-              x={-200}
-              y={420}
-              width={"7%"}
-              height={"7%"}
-            />
-          </g>
+          <foreignObject width={"100%"} height={"100%"}>
+            <div className=" flex absolute bottom-2 w-full px-8 justify-between">
+              <div className=" flex flex-col gap-16  text-5xl">
+                <p>{t("Role")}</p>
+                <p>{t("Magic")}</p>
+                <p>{t("Magic Sequence")}</p>
+                <p>{t("Witchcraft Archives")}</p>
+                <p>{t("Weapons")}</p>
+                <p>{t("Other")}</p>
+              </div>
+              <div className="flex flex-col items-end gap-8">
+                <p className=" text-5xl">Front-end Developer</p>
+                <div data-tooltip="JavaScript" className=" w-20 h-20">
+                  <Svg_JavaScript />
+                </div>
+                <div className="flex gap-5">
+                  <div data-tooltip="React JS" className=" w-20 h-20">
+                    <Svg_react />
+                  </div>
+                  <div data-tooltip="Tailwind" className=" w-20 h-20">
+                    <Svg_tailwindcss />
+                  </div>
+                </div>
+                <div className="flex gap-5">
+                  <div data-tooltip="Framer-Motion" className=" w-20 h-20">
+                    <Svg_framer />
+                  </div>
+                  <div data-tooltip="Daisy ui" className=" w-20 h-20">
+                    <Svg_daisyui />
+                  </div>
+                </div>
+                <div className="flex gap-5">
+                  <div data-tooltip="Vs Code" className=" w-20 h-20">
+                    <Svg_vscode />
+                  </div>
+                  <div data-tooltip="Figma" className=" w-20 h-20">
+                    <Svg_figma />
+                  </div>
+                </div>
+                <div className="flex gap-5">
+                  <div data-tooltip="HTML5" className=" w-20 h-20">
+                    <Svg_html />
+                  </div>
+                  <div data-tooltip="CSS3" className=" w-20 h-20">
+                    <Svg_css />
+                  </div>
+                  <div data-tooltip="SCSS" className=" w-20 h-20">
+                    <Svg_scss />
+                  </div>
+                  <div data-tooltip="Git" className=" w-20 h-20">
+                    <Svg_git />
+                  </div>
+                  <div data-tooltip="Rest API" className=" w-20 h-20">
+                    <Svg_api />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </foreignObject>
           <motion.line
             variants={pathCircleVariants}
             initial="from"
             animate="to"
-            x1="-540"
+            x1="-545"
             y1="0"
-            x2="540"
+            x2="535"
             y2="0"
             transform="matrix(1.018165 0 0-1 544.904547 1294.448723)"
             fill="none"
