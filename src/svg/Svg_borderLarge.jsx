@@ -176,6 +176,13 @@ export default function Svg_borderLarge({ darkMode, t }) {
                   <Svg_JavaScript />
                 </div>
                 <div className="flex gap-5">
+                <div
+                    data-tooltip="React JS"
+                    onClick={() => setDetails("React")}
+                    className=" cursor-pointer w-12 h-12"
+                  >
+                    <Svg_react />
+                  </div>
                   <div
                     data-tooltip="Tailwind"
                     onClick={() => setDetails("Tailwind")}
@@ -185,13 +192,7 @@ export default function Svg_borderLarge({ darkMode, t }) {
                   </div>
                 </div>
                 <div className="flex gap-5">
-                  <div
-                    data-tooltip="React JS"
-                    onClick={() => setDetails("React")}
-                    className=" cursor-pointer w-12 h-12"
-                  >
-                    <Svg_react />
-                  </div>
+                  
                   <div
                     data-tooltip="Framer-Motion"
                     onClick={() => setDetails("Framer")}
