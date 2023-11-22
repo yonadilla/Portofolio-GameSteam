@@ -1,4 +1,4 @@
-git import { imagePortofolio } from "../Data/dataImg";
+import { imagePortofolio } from "../Data/dataImg";
 import CardProject from "../components/CardProject";
 
 export default function CardPortofolio({t}) {
