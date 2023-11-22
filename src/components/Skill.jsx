@@ -7,7 +7,7 @@ export default function Skill({ darkMode, t }) {
   const isLarge = useMediaQuery("(min-width: 1024px)");
   return (
     <>
-      <div className=" text-sm lg:text-xl ">
+      <div className=" px-6 text-sm lg:text-xl ">
         <div className=" pt-10 pb-28  ">
           <div className="">
             {isLarge ? (

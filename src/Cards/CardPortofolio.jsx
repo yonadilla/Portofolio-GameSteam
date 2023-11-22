@@ -1,4 +1,4 @@
-import { imagePortofolio } from "../Data/dataImg";
+git import { imagePortofolio } from "../Data/dataImg";
 import CardProject from "../components/CardProject";
 
 export default function CardPortofolio({t}) {
@@ -11,7 +11,7 @@ export default function CardPortofolio({t}) {
         slider={imagePortofolio.map((modal, id) => {
             return (
               <swiper-slide key={id}>
-                <img src={modal} alt="" className="w-[668px] h-[362px]" />
+                <img  src={modal} alt="" className="w-[668px] h-[362px]" />
               </swiper-slide>
             );
           })}

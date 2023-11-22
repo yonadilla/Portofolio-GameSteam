@@ -15,7 +15,6 @@ const icon = {
 
 export default function Loading() {
     const [darkMode, setDarkMode] = useDarkMode();
-    console.log(darkMode);
   return (
     <div className=" flex justify-center items-center h-[100vh] bg-background dark:bg-background_Darkmod">
       <motion.svg

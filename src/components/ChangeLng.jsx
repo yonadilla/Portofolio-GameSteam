@@ -1,6 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useRef, useState } from "react";
 import useClickOutside from "../Hooks/useClickOutside";
+import { changeLanguage } from "i18next";
 export default function ChangeLng() {
   const ref = useRef()
   const [selectedLang, setSelectedLang] = useState(() => {
@@ -11,7 +12,7 @@ export default function ChangeLng() {
     setSelectedLang(value);
     localStorage.setItem("i18nextLng", value);
     document.documentElement.lang = value;
-    window.location.reload();
+    changeLanguage(value)
   };
   useClickOutside(ref, () => {
     if (open) {

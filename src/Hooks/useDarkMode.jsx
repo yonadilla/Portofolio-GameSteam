@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useLocalStorage } from './useStorage'
 import useMediaQuery from './useMediaQuery'
 

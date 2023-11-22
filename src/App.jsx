@@ -34,7 +34,7 @@ function App() {
   const { t } = useTranslation();
   const isLarge = useMediaQuery("(min-width: 1024px)");
   useEffect(() => {
-    if ( isOpen && !isLarge){
+    if (isOpen && !isLarge) {
       document.body.style.position = " relative";
       document.body.style.overflow = "hidden";
     } else {
@@ -49,18 +49,24 @@ function App() {
   return (
     <div className=" lg:text-lg">
       <Suspense fallback={<Loading />}>
-        <Example isOpen={isOpen} toggleOpen={toggleOpen} darkMode={darkMode} />
-        <motion.div
-          animate={isOpen ? { scale: 0.9 } : { scale: 1 }}
-          className={isOpen ? "blur-sm" : "blur-none"}
-        >
-          <Router
-            darkMode={darkMode}
-            setDarkMode={setDarkMode}
+        <div className="">
+          <Example
             isOpen={isOpen}
-            t={t}
+            toggleOpen={toggleOpen}
+            darkMode={darkMode}
           />
-        </motion.div>
+          <motion.div
+            animate={isOpen ? { scale: 0.9 } : { scale: 1 }}
+            className={isOpen ? "blur-sm" : "blur-none"}
+          >
+            <Router
+              darkMode={darkMode}
+              setDarkMode={setDarkMode}
+              isOpen={isOpen}
+              t={t}
+            />
+          </motion.div>
+        </div>
         <Footer darkMode={darkMode} />
       </Suspense>
     </div>

@@ -25,34 +25,37 @@ export const MenuItem = ({ isOpen, toggleOpen, darkMode }) => {
   return (
     <>
       <div className=" flex flex-col translate-y-10 lg:translate-x-0 lg:absolute lg:top-52 lg:w-full">
-        <Link onClick={() => toggleOpen()} to={"/"}>
-          <motion.li
-            variants={variants}
-            whileTap={{ scale: 0.95 }}
+        <motion.li
+          variants={variants}
+          whileTap={{ scale: 0.95 }}
           
-            className="m-0 w-full my-3 list-none pl-10 flex justify-center items-center cursor-pointer  hover:bg-sidebar dark:hover:bg-navCurrent_Darkmode "
-            
-          >
-            <motion.div   whileHover={{scale: 1.1}} className=" h-14 flex items-center gap-10 w-52">
+          className="m-0 w-full  my-3 list-none flex justify-center items-center cursor-pointer  hover:bg-sidebar dark:hover:bg-navCurrent_Darkmode "
+        >
+          <Link onClick={() => toggleOpen()} to={"/"}>
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              className=" h-14 flex items-center justify-center pr-4 gap-10 w-80"
+            >
               <Svg_home darkMode={darkMode} />
               <p className="">Project</p>
             </motion.div>
-          </motion.li>
-        </Link>
-        <Link onClick={() => toggleOpen()} to={"/aboutme"}>
-          <motion.li
-            variants={variants}
-            whileTap={{ scale: 0.95 }}
-            
-            className="m-0 w-full my-3 list-none flex pl-10 justify-center items-center cursor-pointer  hover:bg-sidebar dark:hover:bg-navCurrent_Darkmode"
-            
-          >
-            <motion.div whileHover={{scale : 1.1}} className=" h-14 flex items-center gap-10 w-52">
+          </Link>
+        </motion.li>
+        <motion.li
+          variants={variants}
+          whileTap={{ scale: 0.95 }}
+          className="m-0 w-full my-3 list-none flex justify-center items-center cursor-pointer  hover:bg-sidebar dark:hover:bg-navCurrent_Darkmode"
+        >
+          <Link onClick={() => toggleOpen()} to={"/aboutme"}>
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              className=" h-14 flex items-center justify-center gap-10 w-80"
+            >
               <Svg_aboutme darkMode={darkMode} />
               About Me
             </motion.div>
-          </motion.li>
-        </Link>
+          </Link>
+        </motion.li>
       </div>
     </>
   );

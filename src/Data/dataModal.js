@@ -5,7 +5,7 @@ export const DataModal = [
         "Title": "First Portofolio",
         "techStack" : "ReactJS All",
         "gif" : "assets/website Gif.webp",
-        "screenShoot" : "assets/Screenshot website.png"
+        "screenShoot" : "assets/Screenshot (57).png",
     },
     {
         "id" : 2,
@@ -21,7 +21,7 @@ export const DataModal = [
         "Title": "my-team page",
         "techStack" : "Others All",
         "gif" : "assets/my_team/my-team.webp",
-        "screenShoot" : "y_team/Screenshot (68).png"
+        "screenShoot" :  "assets/my_team/Screenshot (70).png",
     },
     {
         "id": 4,

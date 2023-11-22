@@ -94,67 +94,57 @@ export default function Home({ darkMode, setDarkMode, t }) {
 
   useEffect(() => {
     if (modal !== 0) {
-      document.body.style.overflow = "hidden"
-    } else document.body.style.overflow = ""
-  },[modal])
+      document.body.style.overflow = "hidden";
+    } else document.body.style.overflow = "";
+  }, [modal]);
+
+  let tabs = [
+    { id: "All", label: "All" },
+    { id: "React", label: "React" },
+    { id: "JavaScript", label: "JavaScript" },
+    { id: "Others", label: "Others" },
+  ];
   return (
     <>
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className=""
+        initial={{ opacity: 0, y: -100 }}
+        animate={{
+          opacity: 1,
+          y: 0,
+          transition: { type: "tween", duration: 0.5 },
+        }}
+        className=" mx-5"
       >
         <main className="">
           {isLarge && (
             <div className=" flex justify-center relative top-9 gap-8">
-              <button
-                className={
-                  query == "All"
-                    ? "bg-navCurrent dark:bg-navCurrent_Darkmode px-2 py-1 rounded-lg cursor-pointer text-white"
-                    : "bg-nav px-2 dark:bg-nav_Darkmode py-1 rounded-lg cursor-pointer text-black"
-                }
-                onClick={() => handleFilter("All")}
-              >
-                All{" "}
-              </button>
-              <button
-                className={
-                  query == "ReactJS"
-                    ? "bg-navCurrent dark:bg-navCurrent_Darkmode px-2 py-1 rounded-lg cursor-pointer text-white"
-                    : "bg-nav px-2 dark:bg-nav_Darkmode py-1 rounded-lg cursor-pointer text-black"
-                }
-                onClick={() => handleFilter("ReactJS")}
-              >
-                React js
-              </button>
-              <button
-                className={
-                  query == "JavaScript"
-                    ? "bg-navCurrent dark:bg-navCurrent_Darkmode px-2 py-1 rounded-lg cursor-pointer text-white"
-                    : "bg-nav px-2 dark:bg-nav_Darkmode py-1 rounded-lg cursor-pointer text-black"
-                }
-                onClick={() => handleFilter("JavaScript")}
-              >
-                JavaScript
-              </button>
-              <button
-                className={
-                  query == "Others"
-                    ? "bg-navCurrent dark:bg-navCurrent_Darkmode px-2 py-1 rounded-lg cursor-pointer text-white"
-                    : "bg-nav px-2 dark:bg-nav_Darkmode py-1 rounded-lg cursor-pointer text-black"
-                }
-                onClick={() => handleFilter("Others")}
-              >
-                Others
-              </button>
+              {tabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setQuery(tab.label)}
+                  className={`${
+                    query == tab.label ? "" : " hover:text-black/50 dark:hover:text-white/50"
+                  } relative rounded-xl px-3 py-1.5 font-medium outline-2 transition focus-visible:outline `}
+                >
+                  {query == tab.id && (
+                    <motion.div
+                      layoutId="active-pill"
+                      className=" absolute inset-0  bg-navCurrent dark:bg-navCurrent_Darkmode"
+                      style={{ borderRadius: 12 }}
+                      transition={{ type: "spring", duration: 0.5 }}
+                    />
+                  )}
+                  <span className=" relative z-20 mix-blend-normal">{tab.label}</span>
+                </button>
+              ))}
             </div>
           )}
           <nav
-            className=" flex justify-end lg:flex-col mt-5 lg:mr-48 lg:h-10"
+            className=" flex justify-end lg:flex-col mt-5 lg:h-10"
             ref={scope}
           >
-            <div className=" absolute top-8 flex items-center lg:right-40">
-              <div className=" flex items-center gap-3 h-auto">
+            <div className=" flex items-center absolute lg:translate-x-[70vw] top-8">
+              <div className=" flex items-center justify-end gap-3 h-auto">
                 <div className=" mt-2">
                   <button onClick={() => setDarkMode(!darkMode)}>
                     {darkMode ? <Svg_darkmode /> : <Svg_lightmode />}
@@ -164,7 +154,7 @@ export default function Home({ darkMode, setDarkMode, t }) {
                   <ChangeLng />
                 </div>
               </div>
-              {!isLarge ? (
+              {!isLarge && (
                 <div ref={filterRef}>
                   <button
                     className=" border-solid border-black flex rounded-lg justify-between px-2 items-center border w-32 text-black dark:text-white  dark:border-white"
@@ -184,7 +174,7 @@ export default function Home({ darkMode, setDarkMode, t }) {
                     </div>
                   </button>
                 </div>
-              ) : null}
+              )}
             </div>
             <ul
               style={{
@@ -203,148 +193,150 @@ export default function Home({ darkMode, setDarkMode, t }) {
               </div>
             </ul>
           </nav>
-          <div className=" lg:h-[410px]">
-            {isLarge && (
-              <div className="">
-                {card == 1 && (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{
-                      opacity: 1,
-                      transition: {
-                        type: "ease",
-                        duration: 1,
-                      },
-                    }}
-                    className=" px-5 "
-                  >
-                    <CardPortofolio t={t} />
-                  </motion.div>
-                )}
-                {card == 2 && (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{
-                      opacity: 1,
-                      transition: {
-                        type: "ease",
-                        duration: 1,
-                      },
-                    }}
-                    className=" px-5 "
-                  >
-                    <CardGameTicTac t={t} />
-                  </motion.div>
-                )}
-                {card == 3 && (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{
-                      opacity: 1,
-                      transition: {
-                        type: "ease",
-                        duration: 1,
-                      },
-                    }}
-                    className=" px-5 "
-                  >
-                    <CardMyTeam t={t} />
-                  </motion.div>
-                )}
-                {card == 4 && (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{
-                      opacity: 1,
-                      transition: {
-                        type: "ease",
-                        duration: 1,
-                      },
-                    }}
-                    className=" px-5 "
-                  >
-                    <CardQuoteGenerator t={t} />
-                  </motion.div>
-                )}
-                {card == 5 && (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{
-                      opacity: 1,
-                      transition: {
-                        type: "ease",
-                        duration: 1,
-                      },
-                    }}
-                    className=" px-5 "
-                  >
-                    <CardNotFound t={t} />
-                  </motion.div>
-                )}
-                {card == 6 && (
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{
-                      opacity: 1,
-                      transition: {
-                        type: "ease",
-                        duration: 1,
-                      },
-                    }}
-                    className="px-5 "
-                  >
-                    <CardInterior t={t} />
-                  </motion.div>
-                )}
-              </div>
-            )}
-          </div>
           <div className="">
-            <motion.div
-              layout
-              className=" pb-28 h-fit lg:relative lg:whitespace-nowrap lg:overflow-auto "
-            >
-              <AnimatePresence>
-                {DataModal.filter((modal) =>
-                  modal.techStack.includes(query)
-                ).map((modal) => {
-                  return (
+            <div className=" lg:h-[410px] ">
+              {isLarge && (
+                <div className="">
+                  {card == 1 && (
                     <motion.div
-                      layout
                       initial={{ opacity: 0 }}
                       animate={{
                         opacity: 1,
-                        transition: { type: "spring", duration: 1 },
+                        transition: {
+                          type: "ease",
+                          duration: 1,
+                        },
                       }}
-                      exit={{ opacity: 0 }}
-                      key={modal.id}
-                      className=" py-3 lg:w-64 lg:inline-block lg:scroll-ml-5 lg:px-5 lg:snap-start"
+                      className=" px-5 "
                     >
-                      <p>{modal.Title}</p>
-                      <button>
-                        <img
-                          src={modal.gif}
-                          onClick={
-                            isLarge
-                              ? () => setCard(modal.modal)
-                              : () => setModal(modal.modal)
-                          }
-                          alt=""
-                          className=""
-                        />
-                      </button>
+                      <CardPortofolio t={t} />
                     </motion.div>
-                  );
-                })}
-              </AnimatePresence>
-            </motion.div>
+                  )}
+                  {card == 2 && (
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{
+                        opacity: 1,
+                        transition: {
+                          type: "ease",
+                          duration: 1,
+                        },
+                      }}
+                      className=" px-5 "
+                    >
+                      <CardGameTicTac t={t} />
+                    </motion.div>
+                  )}
+                  {card == 3 && (
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{
+                        opacity: 1,
+                        transition: {
+                          type: "ease",
+                          duration: 1,
+                        },
+                      }}
+                      className=" px-5 "
+                    >
+                      <CardMyTeam t={t} />
+                    </motion.div>
+                  )}
+                  {card == 4 && (
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{
+                        opacity: 1,
+                        transition: {
+                          type: "ease",
+                          duration: 1,
+                        },
+                      }}
+                      className=" px-5 "
+                    >
+                      <CardQuoteGenerator t={t} />
+                    </motion.div>
+                  )}
+                  {card == 5 && (
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{
+                        opacity: 1,
+                        transition: {
+                          type: "ease",
+                          duration: 1,
+                        },
+                      }}
+                      className=" px-5 "
+                    >
+                      <CardNotFound t={t} />
+                    </motion.div>
+                  )}
+                  {card == 6 && (
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{
+                        opacity: 1,
+                        transition: {
+                          type: "ease",
+                          duration: 1,
+                        },
+                      }}
+                      className="px-5 "
+                    >
+                      <CardInterior t={t} />
+                    </motion.div>
+                  )}
+                </div>
+              )}
+            </div>
+            <div className="">
+              <motion.div
+                layout
+                className=" pb-28 h-fit lg:relative lg:whitespace-nowrap lg:overflow-auto lg:scroll-p-5 "
+              >
+                <AnimatePresence>
+                  {DataModal.filter((modal) =>
+                    modal.techStack.includes(query)
+                  ).map((modal) => {
+                    return (
+                      <motion.div
+                        layout
+                        initial={{ opacity: 0 }}
+                        animate={{
+                          opacity: 1,
+                          transition: { type: "spring", duration: 1 },
+                        }}
+                        exit={{ opacity: 0 }}
+                        key={modal.id}
+                        className=" py-3 lg:w-64 lg:inline-block lg:px-5 lg:snap-start"
+                      >
+                        <p>{modal.Title}</p>
+                        <button>
+                          <img
+                            src={modal.screenShoot}
+                            onClick={
+                              isLarge
+                                ? () => setCard(modal.modal)
+                                : () => setModal(modal.modal)
+                            }
+                            alt=""
+                            className=""
+                          />
+                        </button>
+                      </motion.div>
+                    );
+                  })}
+                </AnimatePresence>
+              </motion.div>
+            </div>
           </div>
           <AnimatePresence mode="wait">
             {modal == 1 ? (
               <Dialog
                 Title={"First Portofolio"}
                 TechStack={"HTML CSS Tailwindcss daisy-ui React JS"}
-                detail={t('detail_portofolio')}
+                detail={t("detail_portofolio")}
                 slider={imagePortofolio.map((modal) => {
                   return (
                     <swiper-slide key={modal.id}>
@@ -371,7 +363,7 @@ export default function Home({ darkMode, setDarkMode, t }) {
                     </swiper-slide>
                   );
                 })}
-                detail={t('detail_tic_tac')}
+                detail={t("detail_tic_tac")}
                 githubUrl={"https://github.com/yonadilla/tic-tac-to"}
                 demoUrl={"https://yonadilla.github.io/tic-tac-to/"}
                 openModal={modal}
@@ -391,7 +383,7 @@ export default function Home({ darkMode, setDarkMode, t }) {
                     </swiper-slide>
                   );
                 })}
-                detail={t('detail_my_team')}
+                detail={t("detail_my_team")}
                 githubUrl={"https://github.com/yonadilla/my-team"}
                 demoUrl={"https://yonadilla.github.io/my-team/"}
                 openModal={modal}
@@ -411,7 +403,7 @@ export default function Home({ darkMode, setDarkMode, t }) {
                     </swiper-slide>
                   );
                 })}
-                detail={t('detail_quote')}
+                detail={t("detail_quote")}
                 githubUrl={"https://github.com/yonadilla/quote-random"}
                 demoUrl={"https://yonadilla.github.io/quote-random/"}
                 openModal={modal}
@@ -431,7 +423,7 @@ export default function Home({ darkMode, setDarkMode, t }) {
                     </swiper-slide>
                   );
                 })}
-                detail={t('detail_not_found')}
+                detail={t("detail_not_found")}
                 githubUrl={"https://github.com/yonadilla/404"}
                 demoUrl={"https://yonadilla.github.io/404/"}
                 openModal={modal}
@@ -451,7 +443,7 @@ export default function Home({ darkMode, setDarkMode, t }) {
                     </swiper-slide>
                   );
                 })}
-                detail={t('detail_my_interior')}
+                detail={t("detail_my_interior")}
                 githubUrl={"https://github.com/yonadilla/interior-challenges"}
                 demoUrl={"https://yonadilla.github.io/interior-challenges/"}
                 openModal={modal}

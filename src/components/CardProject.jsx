@@ -24,7 +24,7 @@ export default function CardProject(props) {
         </p>
         <div className=" flex gap-7 mt-7 absolute bottom-0">
             <button className="border border-solid border-black dark:border-white px-3 py-2 hover:bg-nav_Darkmode"><a href={githubUrl} target="blank">github</a> </button>
-            <button className="border border-solid border-black dark:border-white px-3 py-2 hover:bg-text"><a href={demoUrl} target="blank">demo</a> </button>
+            <button className="border border-solid border-black dark:border-white px-3 py-2 hover:bg-text hover:dark:bg-navCurrent_Darkmode"><a href={demoUrl} target="blank">demo</a> </button>
         </div>
       </div>
     </div>

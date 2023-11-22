@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import "../style/Svg_css.css";
 
 export default function SvgGmail({darkMode, t}) {
-  console.log(t);
+
   const pathCircleVariants = {
     from: {
       opacity: 0,
