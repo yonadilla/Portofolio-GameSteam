@@ -53,7 +53,7 @@ Tujuan saya membuat project ini adalah untuk mem-push kemampuan saya sampai limi
     ```
     
 
-    ##### Contoh Peggunan
+    ##### Contoh penggunaan
 
     ```javascript
     import { useState } from "react"
@@ -70,7 +70,7 @@ Tujuan saya membuat project ini adalah untuk mem-push kemampuan saya sampai limi
     }
     ```
 ### 2. useClickOutside
-- Hooks cocok untuk digunakan untuk Modal, sidebar atau sejenisnya yang click di luar ref akan melakukan sebaliknya 
+- Hooks yang cocok untuk digunakan untuk Modal, sidebar atau sejenisnya yang click di luar ref akan melakukan sebaliknya 
 
     ```javascript
     import useEventListener from './useEventListener'
@@ -86,7 +86,7 @@ Tujuan saya membuat project ini adalah untuk mem-push kemampuan saya sampai limi
     )
     }
     ```
-    ##### Contoh Peggunaan  
+    ##### Contoh penggunaan 
 
 
     ```javascript
@@ -127,7 +127,7 @@ Tujuan saya membuat project ini adalah untuk mem-push kemampuan saya sampai limi
     ```
 ### 3. useMediaQuery 
 
-- hooks ini berfungsi ketika ingin melakukan style berbeda atau benar-benar berbeda di lebar layar tertentu
+- Hooks ini berfungsi ketika ingin melakukan style berbeda atau benar-benar berbeda di lebar layar tertentu
 
     ```javascript
     import { useState, useEffect } from "react"
@@ -149,7 +149,7 @@ Tujuan saya membuat project ini adalah untuk mem-push kemampuan saya sampai limi
     }
     ``` 
 
-    #### contoh penggunaan 
+    ##### Contoh penggunaan 
 
     ```javascript
     import useMediaQuery from "./useMediaQuery"
@@ -199,7 +199,7 @@ Tujuan saya membuat project ini adalah untuk mem-push kemampuan saya sampai limi
     }
 
     ```
-    #### Contoh penggunan
+    ##### Contoh penggunaan
 
     ```javascript
     import { useSessionStorage, useLocalStorage } from "./useStorage"
@@ -245,7 +245,7 @@ Tujuan saya membuat project ini adalah untuk mem-push kemampuan saya sampai limi
     }
 
     ```
-
+    ##### Contoh penggunaan
     DarkmodeComponent.jsx
     ```javascript
     import useDarkMode from "./useDarkMode"
