@@ -24,8 +24,9 @@ Tujuan saya membuat project ini adalah untuk mem-push kemampuan saya sampai limi
 
 
 
- - useEventListener
- seperti namanya Hooks ini berfungsi seperti EventListener pada umumnya dengan tambahan callback dan remove agar tidak terjadi nilai yang tak terduga
+### 1. useEventListener
+
+- seperti namanya Hooks ini berfungsi seperti EventListener pada umumnya dengan tambahan callback dan remove agar tidak terjadi nilai yang tak terduga
 
  
     ```javascript
@@ -49,7 +50,7 @@ Tujuan saya membuat project ini adalah untuk mem-push kemampuan saya sampai limi
 
     return () => element.removeEventListener(eventType, handler)
         }, [eventType, element])} //cleanup ketika informasi sudah berubah
-     ```
+    ```
     
 
     ##### Contoh Peggunan
@@ -61,15 +62,16 @@ Tujuan saya membuat project ini adalah untuk mem-push kemampuan saya sampai limi
     export default function EventListenerComponent() {
     const [key, setKey] = useState("")
     useEventListener("keydown", e => {
-        setKey(e.key) //callback untuk merekam key kemudian simpan di useState
+    setKey(e.key) //callback untuk merekam key kemudian simpan di useState
 
     })
 
     return <div>Last Key: {key}</div>
     }
     ```
- - useClickOutside
-    Hooks cocok untuk digunakan untuk Modal, sidebar atau sejenisnya yang click di luar ref akan melakukan sebaliknya 
+### 2. useClickOutside
+- Hooks cocok untuk digunakan untuk Modal, sidebar atau sejenisnya yang click di luar ref akan melakukan sebaliknya 
+
     ```javascript
     import useEventListener from './useEventListener'
 
@@ -84,8 +86,9 @@ Tujuan saya membuat project ini adalah untuk mem-push kemampuan saya sampai limi
     )
     }
     ```
+    ##### Contoh Peggunaan  
 
-    ##### Contoh Peggunaan 
+
     ```javascript
 
     import { useRef, useState } from "react"
@@ -122,28 +125,45 @@ Tujuan saya membuat project ini adalah untuk mem-push kemampuan saya sampai limi
     )
     }
     ```
- - useMediaQuery 
+### 3. useMediaQuery 
+
+- hooks ini berfungsi ketika ingin melakukan style berbeda atau benar-benar berbeda di lebar layar tertentu
+
     ```javascript
     import { useState, useEffect } from "react"
     import useEventListener from "./useEventListener"
 
-    export default function useMediaQuery(mediaQuery) {
+    export default function useMediaQuery(mediaQuery) { 
     const [isMatch, setIsMatch] = useState(false)
     const [mediaQueryList, setMediaQueryList] = useState(null)
 
     useEffect(() => {
-        const list = window.matchMedia(mediaQuery)
-        setMediaQueryList(list)
-        setIsMatch(list.matches)
+    const list = window.matchMedia(mediaQuery)// untuk mengecek apakah cocok dengan parameter mediaQuery
+    setMediaQueryList(list)//kemudian simpan list diMedia queryList
+    setIsMatch(list.matches)//set apakah cocok atau tidak
     }, [mediaQuery])
 
-    useEventListener("change", e => setIsMatch(e.matches), mediaQueryList)
+    useEventListener("change", e => setIsMatch(e.matches), mediaQueryList)// ketika window.matchMediaQuery berubah true ke false atau sebaliknya
 
     return isMatch
     }
+    ``` 
+
+    #### contoh penggunaan 
+
+    ```javascript
+    import useMediaQuery from "./useMediaQuery"
+
+    export default function MediaQueryComponent() {
+    const isLarge = useMediaQuery("(min-width: 200px)") // import useMediaquery kemudian masukan MediaQuery-nya kemudian isLarge akan berisi true atau false tergantung MediaQuery-nya
+
+    return <div>Large: {isLarge.toString()}</div>
+    }
     ```
-- useStorage
-    Hooks ini digunakan ketika ingin menyimpan value untuk jangka pendek atau lama 
+### 4. useStorage
+
+- Hooks ini digunakan ketika ingin menyimpan value untuk jangka pendek atau lama 
+
     ```javascript
     import { useCallback, useEffect, useState } from "react";
 
@@ -179,7 +199,7 @@ Tujuan saya membuat project ini adalah untuk mem-push kemampuan saya sampai limi
     }
 
     ```
-    ###### Contoh penggunan
+    #### Contoh penggunan
 
     ```javascript
     import { useSessionStorage, useLocalStorage } from "./useStorage"
@@ -202,8 +222,9 @@ Tujuan saya membuat project ini adalah untuk mem-push kemampuan saya sampai limi
     }
     ```
 
- - useDarkMode
-    Hooks ini berfungsi untuk melakukan spesifik style seperti mengubah gambar atau icon ketika Darkmode dan menyimpan value darkmode di local strorage agar tidak berubah ketika di refresh
+### 5. useDarkMode
+
+- Hooks ini berfungsi untuk melakukan spesifik style seperti mengubah gambar atau icon ketika Darkmode dan menyimpan value darkmode di local strorage agar tidak berubah ketika di refresh
     
     ```javascript
     import { useEffect } from 'react'
