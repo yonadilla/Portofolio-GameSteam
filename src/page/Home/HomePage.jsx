@@ -8,9 +8,9 @@ import useMediaQuery from "../../Hooks/useMediaQuery";
 import ChangeLng from "../../components/ChangeLng";
 import FilterPc from "./components/FilterPc";
 import FilterMobile from "./components/FilterMobile";
-import ProjectImg from "./components/projectImg";
 import useUpdateEffect from "../../Hooks/useUpdateEffect";
 import Volume from "./components/Volume";
+import ProjectImg from "./components/projectImg";
 
 export default function Home({ darkMode, setDarkMode, t, volume, setVolume }) {
   const [isOpen, setIsOpen] = useState(false);
