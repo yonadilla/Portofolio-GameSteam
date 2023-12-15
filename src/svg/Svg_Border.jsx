@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import "../style/Border.css";
 import "../style/tooltip.css";
 import Svg_JavaScript from "./Svg_JavaScript";
 import Svg_react from "./Svg_react";

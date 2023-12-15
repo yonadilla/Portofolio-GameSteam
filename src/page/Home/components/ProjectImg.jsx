@@ -1,5 +1,5 @@
-import { AnimatePresence, MotionConfig, motion } from "framer-motion";
-import React, { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import { DataModal } from "../../../Data/dataModal";
 import {
   imagePortofolio,
@@ -14,7 +14,6 @@ import useSound from "use-sound";
 
 
 export default function ProjectImg({ query, setModal, t, modal, volume }) {
-  const [sound, setSound] = useState(false);
   const ref = useRef();
 
   const [playHover, {stopHover}] = useSound("/src/sound/deck_ui_misc_10.wav", {volume : volume})
@@ -50,7 +49,6 @@ export default function ProjectImg({ query, setModal, t, modal, volume }) {
                   <motion.div
                     layout="size"
                     onMouseEnter={() => playHover()}
-                    onMouseLeave={() => stopHover()}
                     whileHover={{
                       scale: [1, 1.1, 1],
                       transition: { type: "tween", duration: 0.1 },
