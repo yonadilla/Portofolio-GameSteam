@@ -9,7 +9,7 @@ import useSound from "use-sound";
 export default function Volume({ darkMode, volume, setVolume }) {
   const [open, setOpen] = useState(false);
   const volumeRef = useRef();
-  const [soundVolume, {stopVolume}] = useSound("/src/sound/bumper_end.wav",{volume : volume})
+  const [soundVolume, {stopVolume}] = useSound("/assets/sound/bumper_end.wav",{volume : volume})
 
   const persen = volume * 100;
   const handleVolumeChange = (e) => {
