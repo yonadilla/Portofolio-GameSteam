@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import "../style/neonColor.css"
 
 function Sidebar({darkMode, volume}) {
   const path = useLocation();
