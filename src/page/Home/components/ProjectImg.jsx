@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { DataModal } from "../../../Data/dataModal";
 import {
   imagePortofolio,
@@ -16,7 +16,7 @@ import useSound from "use-sound";
 export default function ProjectImg({ query, setModal, t, modal, volume }) {
   const ref = useRef();
 
-  const [playHover, {stopHover}] = useSound("/src/sound/deck_ui_misc_10.wav", {volume : volume})
+  const [playHover] = useSound("/src/sound/deck_ui_misc_10.wav", {volume : volume})
   
   const soundShowModal = new Audio("/src/sound/deck_ui_show_modal.mp3");
   soundShowModal.volume = volume
@@ -47,7 +47,7 @@ export default function ProjectImg({ query, setModal, t, modal, volume }) {
                   className="  lg:w-72 lg:h-48"
                 >
                   <motion.div
-                    layout="size"
+                    layoutId={modal.modal}
                     onMouseEnter={() => playHover()}
                     whileHover={{
                       scale: [1, 1.1, 1],
@@ -58,7 +58,6 @@ export default function ProjectImg({ query, setModal, t, modal, volume }) {
                     className="hover:border-solid hover:border-4 border-black hover:rounded-md hover:dark:border-gray-500 hover:dark:shadow-[0_0_20px_5px_rgba(8,_112,_184,_0.7)]  p-1"
                     >
                     <motion.img
-                      layoutId={modal.modal}
                       src={modal.screenShoot}
                       alt=""
                       className=""
