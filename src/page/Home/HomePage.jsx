@@ -10,7 +10,7 @@ import FilterPc from "./components/FilterPc";
 import FilterMobile from "./components/FilterMobile";
 import useUpdateEffect from "../../Hooks/useUpdateEffect";
 import Volume from "./components/Volume";
-import ProjectImg from "./components/projectImg";
+import ProjectImg from "./components/ProjectImg";
 
 export default function Home({ darkMode, setDarkMode, t, volume, setVolume }) {
   const [isOpen, setIsOpen] = useState(false);
