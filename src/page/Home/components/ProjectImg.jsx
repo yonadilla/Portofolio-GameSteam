@@ -16,9 +16,9 @@ import useSound from "use-sound";
 export default function ProjectImg({ query, setModal, t, modal, volume }) {
   const ref = useRef();
 
-  const [playHover] = useSound("/src/sound/deck_ui_misc_10.wav", {volume : volume})
+  const [playHover] = useSound("/assets/sound/deck_ui_misc_10.wav", {volume : volume})
   
-  const soundShowModal = new Audio("/src/sound/deck_ui_show_modal.mp3");
+  const soundShowModal = new Audio("/assets/sound/deck_ui_show_modal.mp3");
   soundShowModal.volume = volume
 
 

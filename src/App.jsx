@@ -52,7 +52,7 @@ function App() {
   }, [isOpen]);
 
   const [darkMode, setDarkMode] = useDarkMode();
-  const soundStart = new Audio("/src/sound/deck_ui_launch_game.wav");
+  const soundStart = new Audio("/assets/sound/deck_ui_launch_game.wav");
   soundStart.volume = volume;
   return (
     <>

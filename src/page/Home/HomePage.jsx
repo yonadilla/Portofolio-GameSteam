@@ -40,11 +40,11 @@ export default function Home({ darkMode, setDarkMode, t, volume, setVolume }) {
 
   useUpdateEffect(() => {
     if (darkMode) {
-      let soundDark = new Audio("/src/sound/confirmation_negative.wav");
+      let soundDark = new Audio("/assets/sound/confirmation_negative.wav");
       soundDark.play();
       soundDark.volume = volume;
     } else {
-      let soundLight = new Audio("/src/sound/confirmation_positive.wav");
+      let soundLight = new Audio("/assets/sound/confirmation_positive.wav");
       soundLight.play();
       soundLight.volume = volume;
     }

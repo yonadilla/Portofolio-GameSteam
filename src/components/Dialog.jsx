@@ -16,7 +16,7 @@ export default function Dialog({
   const [index, setIndex] = useState(0);
   const ref = useRef();
 
-  const soundHideModal = new Audio("/src/sound/deck_ui_hide_modal.wav");
+  const soundHideModal = new Audio("/assets/sound/deck_ui_hide_modal.wav");
   soundHideModal.volume = volume;
 
   useLayoutEffect(() => {

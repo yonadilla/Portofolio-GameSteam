@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import useClickOutside from "../Hooks/useClickOutside";
 import { changeLanguage } from "i18next";
 import useUpdateEffect from "../Hooks/useUpdateEffect";
+import useSound from "use-sound";
 
 export default function ChangeLng({ volume }) {
   const ref = useRef();
@@ -24,17 +25,17 @@ export default function ChangeLng({ volume }) {
 
   function soundLang() {
     if (open) {
-      let soundOpen = new Audio("/src/sound/deck_ui_switch_toggle_on.wav");
+      let soundOpen = new Audio("/assets/sound/deck_ui_switch_toggle_on.wav");
       soundOpen.play();
       soundOpen.volume = volume;
     } else {
-      let soundClose = new Audio("/src/sound/deck_ui_switch_toggle_off.wav");
+      let soundClose = new Audio("/assets/sound/deck_ui_switch_toggle_off.wav");
       soundClose.play();
       soundClose.volume = volume;
     }
   }
 
-  const soundHover = new Audio("/src/sound/deck_ui_misc_10.wav");
+  const [ hover] = useSound("/assets/sound/deck_ui_misc_10.wav")
   return (
     <div>
       <div
@@ -55,14 +56,14 @@ export default function ChangeLng({ volume }) {
             className=" fixed top-14  border bg-background dark:bg-background_Darkmod border-black w-20 border-solid dark:border-white flex flex-col gap-2 "
           >
             <button
-              onMouseEnter={() => soundHover.play()}
+              onMouseEnter={() => hover()}
               onClick={() => handleLangChange("id")}
               className=" hover:bg-sidebar hover:dark:bg-navCurrent_Darkmode"
             >
               IDN
             </button>
             <button
-              onMouseEnter={() => soundHover.play()}
+              onMouseEnter={() => hover()}
               onClick={() => handleLangChange("en")}
               className=" hover:bg-sidebar hover:dark:bg-navCurrent_Darkmode"
             >

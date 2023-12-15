@@ -13,7 +13,7 @@ export default function About({ darkMode, setDarkMode, t, volume }) {
   ];
 
   useUpdateEffect(() => {
-    const soundTab = new Audio("/src/sound/deck_ui_tab_transition_01.wav")
+    const soundTab = new Audio("/assets/sound/deck_ui_tab_transition_01.wav")
     soundTab.play()
     soundTab.volume = volume
   },[currentPage])

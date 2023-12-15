@@ -27,11 +27,11 @@ export default function Volume({ darkMode, volume, setVolume }) {
     function soundClick () {
 
       if (open) {
-        let soundOpen = new Audio("/src/sound/confirmation_negative.wav");
+        let soundOpen = new Audio("/assets/sound/confirmation_negative.wav");
         soundOpen.play();
         soundOpen.volume = volume;
       } else {
-        let soundClose = new Audio("/src/sound/confirmation_positive.wav");
+        let soundClose = new Audio("/assets/sound/confirmation_positive.wav");
       soundClose.play();
       soundClose.volume = volume;
     }
