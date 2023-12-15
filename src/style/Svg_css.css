@@ -18,6 +18,10 @@
    opacity: 1;
 }
 
+#border {
+    filter: drop-shadow(2px 2px 5px  #ffffff);
+    -webkit-filter: drop-shadow(2px 2px 5px  #ffffff);
+}
 svg:hover #bgBiru {
     opacity: 1;
  }

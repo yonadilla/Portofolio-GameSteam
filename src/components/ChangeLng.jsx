@@ -2,8 +2,10 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useRef, useState } from "react";
 import useClickOutside from "../Hooks/useClickOutside";
 import { changeLanguage } from "i18next";
-export default function ChangeLng() {
-  const ref = useRef()
+import useUpdateEffect from "../Hooks/useUpdateEffect";
+
+export default function ChangeLng({ volume }) {
+  const ref = useRef();
   const [selectedLang, setSelectedLang] = useState(() => {
     return localStorage.getItem("i18nextLng") || "en";
   });
@@ -12,21 +14,37 @@ export default function ChangeLng() {
     setSelectedLang(value);
     localStorage.setItem("i18nextLng", value);
     document.documentElement.lang = value;
-    changeLanguage(value)
+    changeLanguage(value);
   };
   useClickOutside(ref, () => {
     if (open) {
       setOpen(false);
     }
-  })
+  });
+
+  function soundLang() {
+    if (open) {
+      let soundOpen = new Audio("/src/sound/deck_ui_switch_toggle_on.wav");
+      soundOpen.play();
+      soundOpen.volume = volume;
+    } else {
+      let soundClose = new Audio("/src/sound/deck_ui_switch_toggle_off.wav");
+      soundClose.play();
+      soundClose.volume = volume;
+    }
+  }
+
+  const soundHover = new Audio("/src/sound/deck_ui_misc_10.wav");
   return (
     <div>
       <div
-      ref={ref}
+        ref={ref}
         className=" border border-black border-solid dark:border-white w-20 h-max cursor-pointer"
-        onClick={() => setOpen(!open)}
+        onClick={() => {setOpen(!open), soundLang()}}
       >
-      <p className=" pl-2">{selectedLang == "id" ? "IDN" : "ENG"}</p>
+        <p className=" flex justify-center">
+          {selectedLang == "id" ? "IDN" : "ENG"}
+        </p>
       </div>
       <AnimatePresence mode="wait">
         {open && (
@@ -34,15 +52,17 @@ export default function ChangeLng() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "max-content" }}
             exit={{ opacity: 0, height: 0 }}
-            className=" absolute top-10 border bg-background dark:bg-background_Darkmod border-black w-20 border-solid dark:border-white flex flex-col gap-2 "
+            className=" fixed top-14  border bg-background dark:bg-background_Darkmod border-black w-20 border-solid dark:border-white flex flex-col gap-2 "
           >
             <button
+              onMouseEnter={() => soundHover.play()}
               onClick={() => handleLangChange("id")}
               className=" hover:bg-sidebar hover:dark:bg-navCurrent_Darkmode"
             >
               IDN
             </button>
             <button
+              onMouseEnter={() => soundHover.play()}
               onClick={() => handleLangChange("en")}
               className=" hover:bg-sidebar hover:dark:bg-navCurrent_Darkmode"
             >

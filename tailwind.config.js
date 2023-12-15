@@ -18,10 +18,17 @@ export default {
         "text" :  "#83c5be",
         "nav" : "#ffddd2",
         "navCurrent" : "#e29578",
+        "neon-red" : {
+          
+  }
       },
       fontFamily: {
-        "raleway" : ["Raleyway", "sans-serif" ],
         "sora" : ["Sora"]
+      },
+      boxShadow : {
+        "neon-pink" : ' 0 0 10px #e10361, 0 0 5px #e10361, 0 0 5px #e10361, 0 0 5px #e10361, 0 0 5px #e10361',
+        "neon-blue" : '0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #00a3d5, 0 0 5px #00a3d5, 0 0 5px #00a3d5, 0 0 5px #00a3d5, 0 0 5px #00a3d5',
+        "text-neon-hijau" :  '0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px #0fa, 0 0 82px #0fa, 0 0 92px #0fa,0 0 102px #0fa,0 0 151px #0fa'
       },
       backgroundImage: {
         "image-interior" : "url('/src/assets/my_interior/Screenshot (73).png')"
