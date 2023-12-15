@@ -6,7 +6,6 @@ import Svg_darkmode from "../../svg/Svg_darkmode";
 import Svg_lightmode from "../../svg/Svg_lightmode";
 import useMediaQuery from "../../Hooks/useMediaQuery";
 import ChangeLng from "../../components/ChangeLng";
-import "../../style/neonColor.css";
 import FilterPc from "./components/FilterPc";
 import FilterMobile from "./components/FilterMobile";
 import ProjectImg from "./components/projectImg";
