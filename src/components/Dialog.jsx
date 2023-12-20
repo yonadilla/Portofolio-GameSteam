@@ -1,5 +1,6 @@
 import { AnimatePresence, MotionConfig, motion } from "framer-motion";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import {Howl, Howler} from 'howler';
 
 export default function Dialog({
   setModal,
@@ -15,12 +16,22 @@ export default function Dialog({
 }) {
   const [index, setIndex] = useState(0);
   const ref = useRef();
+  
+    const soundModal = new Howl({
+      src : ["/assets/sound/deck_ui_show_modal.mp3"],
+      volume : volume,
+      preload : true,
+    });
 
-  const soundHideModal = new Audio("/assets/sound/deck_ui_hide_modal.wav");
-  soundHideModal.volume = volume;
+    const soundHide = new Howl({
+      src : ["/assets/sound/deck_ui_hide_modal.wav"],
+      volume : volume,
+      preload : true,
+    });
 
-  useLayoutEffect(() => {
-    if (openModal) {
+    useLayoutEffect(() => {
+      if (openModal) {
+      soundModal.play()
       ref.current?.showModal();
     } else {
       ref.current?.close();
@@ -98,7 +109,8 @@ export default function Dialog({
           <button
             className=" bg-white rounded-full inline-block w-8 h-8 z-30 absolute right-0 top-0 m-3"
             onClick={() => {
-              setModal(null), soundHideModal.play();
+              setModal(null),
+              soundHide.play();
             }}
           >
             &times;

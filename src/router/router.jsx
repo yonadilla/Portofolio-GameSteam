@@ -9,7 +9,7 @@ export default function Router({ darkMode, setDarkMode, t, volume, setVolume }) 
   const location = useLocation();
   return (
     <div>
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="wait" onExitComplete={() => null}>
         <Routes location={location} key={location.pathname}>
           <Route
             path="/"

@@ -8,9 +8,9 @@ import useMediaQuery from "../../Hooks/useMediaQuery";
 import ChangeLng from "../../components/ChangeLng";
 import FilterPc from "./components/FilterPc";
 import FilterMobile from "./components/FilterMobile";
-import useUpdateEffect from "../../Hooks/useUpdateEffect";
 import Volume from "./components/Volume";
-import ProjectImg from "./components/ProjectImg";
+import ProjectImg from "./components/ProjectImg"
+import { Howl } from "howler";
 
 export default function Home({ darkMode, setDarkMode, t, volume, setVolume }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,17 +38,17 @@ export default function Home({ darkMode, setDarkMode, t, volume, setVolume }) {
     };
   }, [modal, isLarge]);
 
-  useUpdateEffect(() => {
-    if (darkMode) {
-      let soundDark = new Audio("/assets/sound/confirmation_negative.wav");
-      soundDark.play();
-      soundDark.volume = volume;
-    } else {
-      let soundLight = new Audio("/assets/sound/confirmation_positive.wav");
-      soundLight.play();
-      soundLight.volume = volume;
-    }
-  }, [darkMode]);
+  var soundOpen = new Howl({
+    src: ["/assets/sound/confirmation_negative.wav"],
+    volume : volume,
+    preload : true
+  });
+
+  var soundClose = new Howl({
+    src: ["/assets/sound/confirmation_positive.wav"],
+    volume : volume,
+    preload : true
+  });
   return (
     <>
       <motion.div className="flex flex-col gap-10">
@@ -82,9 +82,9 @@ export default function Home({ darkMode, setDarkMode, t, volume, setVolume }) {
               />
             </div>
           )}
-          <div className=" flex gap-2">
-            <div className=" lg:pt-1">
-              <button onClick={() => setDarkMode(!darkMode)}>
+          <div className=" flex gap-2 h-fit">
+            <div className=" ">
+              <button onClick={() => {setDarkMode(!darkMode), darkMode ? soundOpen.play() : soundClose.play()}}>
                 {darkMode ? <Svg_darkmode /> : <Svg_lightmode />}
               </button>
             </div>
@@ -100,14 +100,14 @@ export default function Home({ darkMode, setDarkMode, t, volume, setVolume }) {
           initial={{ opacity: 0, y: "100vh" }}
           animate={{
             opacity: 1,
-            y: 0,
+            y: 0  ,
             transition: { type: "tween", duration: 0.5 },
           }}
           exit={{ y : isLarge ? "100vh" : 0, x : isLarge ? 0: "100vw" }}
           className=""
         >
           <div className="">
-            <ProjectImg volume={volume} query={query} setModal={setModal} t={t} modal={modal} />
+            <ProjectImg volume={volume} isLarge={isLarge} query={query} setModal={setModal} t={t} modal={modal} />
           </div>
         </motion.div>
       </motion.div>

@@ -1,10 +1,9 @@
 import { useRef, useState } from "react";
 import Svg_volume from "../../../svg/Svg_volume";
 import { AnimatePresence, motion } from "framer-motion";
-import { useSessionStorage } from "../../../Hooks/useStorage";
 import useClickOutside from "../../../Hooks/useClickOutside";
-import useUpdateEffect from "../../../Hooks/useUpdateEffect";
 import useSound from "use-sound";
+import { Howl } from "howler";
 
 export default function Volume({ darkMode, volume, setVolume }) {
   const [open, setOpen] = useState(false);
@@ -24,30 +23,28 @@ export default function Volume({ darkMode, volume, setVolume }) {
     }
   });
 
-    function soundClick () {
 
-      if (open) {
-        let soundOpen = new Audio("/assets/sound/confirmation_negative.wav");
-        soundOpen.play();
-        soundOpen.volume = volume;
-      } else {
-        let soundClose = new Audio("/assets/sound/confirmation_positive.wav");
-      soundClose.play();
-      soundClose.volume = volume;
-    }
-  }
-    
 
-  
+  var soundOpen = new Howl({
+    src: ["/assets/sound/confirmation_negative.wav"],
+    volume : volume,
+    preload : true
+  });
+
+  var soundClose = new Howl({
+    src: ["/assets/sound/confirmation_positive.wav"],
+    volume : volume,
+    preload : true
+  });
   return (
-    <div ref={volumeRef} className="">
+    <div ref={volumeRef} className=" flex flex-col justify-center items-center">
       <div
-        onClick={() => {setOpen(!open), soundClick()}}
+        onClick={() => {setOpen(!open), open ? soundOpen.play() : soundClose.play()}}
         className=" w-7 h-3 flex items-center"
       >
         <Svg_volume darkMode={darkMode} />
       </div>
-      <div className=" absolute right-2 top-4 lg:right-28 -rotate-90">
+      <div className="absolute top-20">
         <AnimatePresence mode="wait">
           {open && (
             <motion.div
@@ -60,17 +57,18 @@ export default function Volume({ darkMode, volume, setVolume }) {
                 opacity: 0,
                 transition: { type: "spring", duration: 1 },
               }}
-              className="flex justify-start flex-col items-stretch"
+              className=""
             >
-              <div className=" w-48 h-2 flex rounded overflow-hidden">
+              <div className="  h-2 flex rounded overflow-hidden">
                 <input
                   type="range"
                   min="0"
                   max="100"
                   value={persen}
-                  className=" bg-black rotate-90 absolute w-24 h-auto"
+                  className=" bg-black w-36 flex justify-center h-auto"
                   onMouseDown={() => stopVolume()}
                   onMouseUp={() => soundVolume()}
+                  onTouchEnd={() => soundVolume()}
                   onChange={handleVolumeChange}
                 />
               </div>

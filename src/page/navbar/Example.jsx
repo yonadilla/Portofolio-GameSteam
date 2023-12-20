@@ -8,7 +8,7 @@ export const Example = ({ isOpen, darkMode, toggleOpen, volume }) => {
   const isLarge = useMediaQuery("(min-width: 1024px)");
 
   useUpdateEffect(() => {
-    const soundNavigation = new Audio ("/src/sound/deck_ui_navigation.wav")
+    const soundNavigation = new Audio ("/assets/sound/deck_ui_navigation.wav")
     soundNavigation.play ()
     soundNavigation.volume = volume
   },[isOpen])

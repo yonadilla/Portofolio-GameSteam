@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Sora&display=swap');
 
 @font-face {
   font-family: knight-warior;
@@ -16,6 +15,7 @@ body {
   background-color: #edf6f9;
   min-height: 100vh;
   width: 100%;
+  font-display: inherit;
   font-family: "Sora";
   overflow-y: scroll;
   word-wrap: break-word;

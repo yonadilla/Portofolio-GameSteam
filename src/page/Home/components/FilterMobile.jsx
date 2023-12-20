@@ -1,7 +1,6 @@
 import { stagger, useAnimate } from "framer-motion";
 import React, { useEffect } from "react";
-import useUpdateEffect from "../../../Hooks/useUpdateEffect";
-
+import { Howl } from "howler";
 export default function FilterMobile({
   isLarge,
   setIsOpen,
@@ -57,21 +56,21 @@ export default function FilterMobile({
     setQuery(query);
     setIsOpen(false);
   }
+  var soundTab = new Howl({
+    src: ["/assets/sound/deck_ui_tab_transition_01.wav"],
+    volume : volume,
+    preload : true
+  });
 
-  useUpdateEffect(() => {
-    const soundTab = new Audio("/src/sound/deck_ui_tab_transition_01.wav")
-    soundTab.play()
-    soundTab.volume = volume
-  },[isOpen])
   return (
     <div>
-      <nav className=" " ref={scope}>
-        <div className=" flex ">
+      <nav className=" w-fit" ref={scope}>
+        <div className=" flex">
           {!isLarge && (
             <div ref={filterRef}>
               <button
                 className=" border-solid border-black flex rounded-lg justify-between px-2 items-center border w-32 text-black dark:text-white  dark:border-white"
-                onClick={() => setIsOpen(!isOpen)}
+                onClick={() => {setIsOpen(!isOpen), soundTab.play() }}
               >
                 {query}
                 <div className="arrow" style={{ transformOrigin: "50% 55%" }}>
@@ -91,14 +90,12 @@ export default function FilterMobile({
             pointerEvents: isOpen ? "auto" : "none",
             clipPath: "inset(10% 50% 90% 50% round 10px)",
           }}
-          className={" translate-y-5 p-3 w-48 z-10 bg-white dark:bg-black "}
+          className={" translate-y-5 p-3 w-32 z-10 bg-white dark:bg-black "}
         >
-          <div className=" ">
             <li onClick={() => handleFilter("All")}>All </li>
             <li onClick={() => handleFilter("ReactJS")}>React js</li>
             <li onClick={() => handleFilter("JavaScript")}>JavaScript</li>
             <li onClick={() => handleFilter("Others")}>Others</li>
-          </div>
         </ul>
       </nav>
     </div>

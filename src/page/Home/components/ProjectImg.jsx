@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { DataModal } from "../../../Data/dataModal";
 import {
   imagePortofolio,
@@ -10,22 +10,48 @@ import {
   imgTictac,
 } from "../../../Data/dataImg";
 import Dialog from "../../../components/Dialog";
-import useSound from "use-sound";
+import {Howl} from 'howler';
+import useUpdateEffect from "../../../Hooks/useUpdateEffect";
 
 
-export default function ProjectImg({ query, setModal, t, modal, volume }) {
-  const ref = useRef();
+export default function ProjectImg({
+  query,
+  setModal,
+  t,
+  modal,
+  volume,
+  isLarge,
+}) {
+  const ref = useRef()
 
-  const [playHover] = useSound("/assets/sound/deck_ui_misc_10.wav", {volume : volume})
-  
-  const soundShowModal = new Audio("/assets/sound/deck_ui_show_modal.mp3");
-  soundShowModal.volume = volume
+  const soundHover = new Howl({
+    src : ["/assets/sound/deck_ui_misc_10.wav"],
+    volume : volume,
+    preload : true,
+  })
 
+  useUpdateEffect(() => {
+    const soundModal = new Howl({
+      src : ["/assets/sound/deck_ui_show_modal.mp3"],
+      volume : volume,
+      preload : true,
+    });
+
+    const soundHide = new Howl({
+      src : ["/assets/sound/deck_ui_hide_modal.wav"],
+      volume : volume,
+      preload : true,
+    });
+
+    if (modal) {
+      soundModal.play()
+    }
+    soundHide.play()
+  },[modal])
 
   useEffect(() => {
     if (modal !== null) {
       ref.current?.showModal();
-      soundShowModal.play();
     } else ref.current?.close();
   }, [modal]);
 
@@ -48,19 +74,23 @@ export default function ProjectImg({ query, setModal, t, modal, volume }) {
                 >
                   <motion.div
                     layoutId={modal.modal}
-                    onMouseEnter={() => playHover()}
+                    onMouseEnter={() => {
+                      isLarge ? soundHover.play() : null;
+                    }}
                     whileHover={{
                       scale: [1, 1.1, 1],
                       transition: { type: "tween", duration: 0.1 },
                     }}
+                    
                     transition={{ layout: { duration: 0.4, type: "tween" } }}
-                    onClick={() => setModal(modal.modal)}
-                    className="hover:border-solid hover:border-4 border-black hover:rounded-md hover:dark:border-gray-500 hover:dark:shadow-[0_0_20px_5px_rgba(8,_112,_184,_0.7)]  p-1"
-                    >
+                    onClick={() => {
+                      setModal(modal.modal), stop();
+                    }}
+                    className="hover:border-solid hover:border-4 border-black hover:rounded-md hover:dark:border-gray-500 hover:dark:shadow-[0_0_20px_5px_rgba(8,_112,_184,_0.7)]  p-1">
                     <motion.img
                       src={modal.screenShoot}
                       alt=""
-                      className=""
+                      className=" lg:h-40"
                     />
                   </motion.div>
                 </motion.div>

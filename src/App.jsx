@@ -13,6 +13,8 @@ import useMediaQuery from "./Hooks/useMediaQuery";
 import Sidebar from "./page/sidebar";
 import Loading from "./components/Loading";
 import { useSessionStorage } from "./Hooks/useStorage";
+import { SpeedInsights } from "@vercel/speed-insights/react";
+import {Howl} from 'howler';
 
 i18next
   .use(initReactI18next)
@@ -38,7 +40,6 @@ function App() {
   const [start, setStart] = useState(true);
   const [volume, setVolume] = useSessionStorage("volume", 0.7);
 
- 
   useEffect(() => {
     if (isOpen && !isLarge) {
       document.body.style.position = " relative";
@@ -52,71 +53,73 @@ function App() {
   }, [isOpen]);
 
   const [darkMode, setDarkMode] = useDarkMode();
-  const soundStart = new Audio("/assets/sound/deck_ui_launch_game.wav");
-  soundStart.volume = volume;
+
+  const soundStart = new Howl({
+    src : ["/assets/sound/deck_ui_launch_game.wav"],
+    volume : volume,
+    preload : true,
+  })
   return (
     <>
-      <Suspense fallback={<Loading />}>
-        <motion.div
-          animate={{
-            opacity: [0, 1],
-            transition: { type: "tween", duration: 2 },
-          }}
-          className={` ${
-            start ? "flex" : "hidden"
-          } flex-col gap-56 tracking-widest justify-center items-center h-screen `}
-        >
-          <p className=" text-center game text-4xl">Selamat datang di website ku</p>
-          <motion.button
-          whileHover={{scale : 1.2}}
-          whileTap={{scale : 0.8}}
+      <SpeedInsights/>
+      <motion.div
+        className={` ${
+          start ? "flex" : "hidden"
+        } flex-col gap-56 tracking-widest justify-center items-center h-screen `}
+      >
+        <p className=" text-center game text-4xl">
+          Selamat datang di website ku
+        </p>
+        <motion.button
+          whileHover={{ scale: 1.2 }}
+          whileTap={{ scale: 0.8 }}
           className=" game text-xl tracking-wide px-4 py-2"
-            onClick={() => {
-              setStart(false), soundStart.play();
-            }}
-          >
-            Start
-          </motion.button>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{
-            display: start ? "none" : "block",
-            opacity: start ? 0 : 1,
+          onClick={() => {
+            setStart(false), soundStart.play();
           }}
-          transition={{ delay: 1 }}
-          className=" lg:text-lg lg:h-screen"
         >
-          <div className=" lg:flex lg:w-[90vw] lg:mx-auto my-6 w-screen">
-            {!isLarge ? (
-              <Example
-                volume={volume}
-                isOpen={isOpen}
-                toggleOpen={toggleOpen}
-                darkMode={darkMode}
-              />
-            ) : (
-              <div className=" w-52">
-                <Sidebar darkMode={darkMode} volume={volume} />
-              </div>
-            )}
-            <motion.div
-              animate={isOpen ? { scale: 0.9 } : { scale: 1 }}
-              className={isOpen ? "blur-sm" : "blur-none lg:w-[80%] lg:ml-10 "}
-            >
-              <Router
-                setVolume={setVolume}
-                volume={volume}
-                darkMode={darkMode}
-                setDarkMode={setDarkMode}
-                isOpen={isOpen}
-                t={t}
-              />
-            </motion.div>
-          </div>
-          {!isLarge && <Footer darkMode={darkMode} />}
-        </motion.div>
-      </Suspense>
+          Start
+        </motion.button>
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{
+          display: start ? "none" : "block",
+          opacity: start ? 0 : 1,
+        }}
+
+        transition={{delay : 1}}
+        className=" lg:text-lg lg:h-screen"
+      >
+        <div className=" lg:flex lg:w-[90vw] lg:mx-auto my-6 w-screen">
+          {!isLarge ? (
+            <Example
+              volume={volume}
+              isOpen={isOpen}
+              toggleOpen={toggleOpen}
+              darkMode={darkMode}
+            />
+          ) : (
+            <div className=" w-52">
+              <Sidebar darkMode={darkMode} volume={volume} />
+            </div>
+          )}
+          <motion.div
+            animate={isOpen ? { scale: 0.9 } : { scale: 1 }}
+            className={isOpen ? "blur-sm" : "blur-none lg:w-[80%] lg:ml-10 "}
+          >
+            <Router
+              setVolume={setVolume}
+              volume={volume}
+              darkMode={darkMode}
+              setDarkMode={setDarkMode}
+              isOpen={isOpen}
+              t={t}
+            />
+          </motion.div>
+        </div>
+        {!isLarge && <Footer darkMode={darkMode} />}
+      </motion.div>
     </>
   );
 }
