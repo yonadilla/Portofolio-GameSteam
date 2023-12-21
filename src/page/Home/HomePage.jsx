@@ -88,9 +88,6 @@ export default function Home({ darkMode, setDarkMode, t, volume, setVolume }) {
                 {darkMode ? <Svg_darkmode /> : <Svg_lightmode />}
               </button>
             </div>
-            <div className=" pt-2">
-              <Volume volume={volume} darkMode={darkMode} setVolume={setVolume}/>
-            </div>
             <div className="">
               <ChangeLng volume={volume} />
             </div>

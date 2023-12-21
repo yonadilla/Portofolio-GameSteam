@@ -6,7 +6,6 @@ import { AnimatePresence } from "framer-motion";
 const Home = lazy(() => import("../page/Home/HomePage"));
 
 export default function Router({ darkMode, setDarkMode, t, volume, setVolume }) {
-  const location = useLocation();
   return (
     <div>
         <Routes>

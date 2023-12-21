@@ -38,7 +38,7 @@ function App() {
   const ref = useRef();
   const isLarge = useMediaQuery("(min-width: 1024px)");
   const [start, setStart] = useState(true);
-  const [volume, setVolume] = useSessionStorage("volume", 0.7);
+  const [volume, setVolume] = useSessionStorage("volume", 0);
 
   useEffect(() => {
     if (isOpen && !isLarge) {
