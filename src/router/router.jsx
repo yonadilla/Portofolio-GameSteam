@@ -9,8 +9,7 @@ export default function Router({ darkMode, setDarkMode, t, volume, setVolume }) 
   const location = useLocation();
   return (
     <div>
-      <AnimatePresence mode="wait" onExitComplete={() => null}>
-        <Routes location={location} key={location.pathname}>
+        <Routes>
           <Route
             path="/"
             element={
@@ -26,7 +25,6 @@ export default function Router({ darkMode, setDarkMode, t, volume, setVolume }) 
             element={<StatistikPage darkMode={darkMode} t={t} />}
           />
         </Routes>
-      </AnimatePresence>
     </div>
   );
 }
