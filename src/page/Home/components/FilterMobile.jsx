@@ -1,6 +1,5 @@
 import { stagger, useAnimate } from "framer-motion";
 import React, { useEffect } from "react";
-import { Howl } from "howler";
 export default function FilterMobile({
   isLarge,
   setIsOpen,
@@ -9,7 +8,6 @@ export default function FilterMobile({
   darkMode,
   setQuery,
   filterRef,
-  volume
 }) {
   const staggerMenuItems = stagger(0.1, { startDelay: 0.15 });
   function useMenuAnimation() {
@@ -56,11 +54,7 @@ export default function FilterMobile({
     setQuery(query);
     setIsOpen(false);
   }
-  var soundTab = new Howl({
-    src: ["/assets/sound/deck_ui_tab_transition_01.wav"],
-    volume : volume,
-    preload : true
-  });
+
 
   return (
     <div>
@@ -70,7 +64,7 @@ export default function FilterMobile({
             <div ref={filterRef}>
               <button
                 className=" border-solid border-black flex rounded-lg justify-between px-2 items-center border w-32 text-black dark:text-white  dark:border-white"
-                onClick={() => {setIsOpen(!isOpen), soundTab.play() }}
+                onClick={() => {setIsOpen(!isOpen) }}
               >
                 {query}
                 <div className="arrow" style={{ transformOrigin: "50% 55%" }}>

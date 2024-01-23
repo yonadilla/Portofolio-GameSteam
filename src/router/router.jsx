@@ -2,22 +2,22 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import { lazy } from "react";
 import StatistikPage from "../page/Statistik/StatistikPage";
 import AboutmePage from "../page/AboutMe/AboutMePage";
+import HomePage from "../page/Home/HomePage"
 import { AnimatePresence } from "framer-motion";
-const Home = lazy(() => import("../page/Home/HomePage"));
 
-export default function Router({ darkMode, setDarkMode, t, volume, setVolume }) {
+export default function Router({ darkMode, setDarkMode, t }) {
   return (
     <div>
         <Routes>
           <Route
             path="/"
             element={
-              <Home darkMode={darkMode} t={t} setVolume={setVolume} setDarkMode={setDarkMode} volume={volume} />
+              <HomePage darkMode={darkMode} t={t} setDarkMode={setDarkMode} />
             }
           />
           <Route
             path="/aboutme"
-            element={<AboutmePage darkMode={darkMode} t={t} volume={volume} />}
+            element={<AboutmePage darkMode={darkMode} t={t} />}
           />
           <Route
             path="/statistic"

@@ -11,10 +11,7 @@ import I18nextBrowserLanguageDetector from "i18next-browser-languagedetector";
 import HttpApi from "i18next-http-backend";
 import useMediaQuery from "./Hooks/useMediaQuery";
 import Sidebar from "./page/sidebar";
-import Loading from "./components/Loading";
-import { useSessionStorage } from "./Hooks/useStorage";
 import { SpeedInsights } from "@vercel/speed-insights/react";
-import {Howl} from 'howler';
 
 i18next
   .use(initReactI18next)
@@ -38,7 +35,6 @@ function App() {
   const ref = useRef();
   const isLarge = useMediaQuery("(min-width: 1024px)");
   const [start, setStart] = useState(true);
-  const [volume, setVolume] = useSessionStorage("volume", 0);
 
   useEffect(() => {
     if (isOpen && !isLarge) {
@@ -54,11 +50,6 @@ function App() {
 
   const [darkMode, setDarkMode] = useDarkMode();
 
-  const soundStart = new Howl({
-    src : ["/assets/sound/deck_ui_launch_game.wav"],
-    volume : volume,
-    preload : true,
-  })
   return (
     <>
       <SpeedInsights/>
@@ -68,14 +59,14 @@ function App() {
         } flex-col gap-56 tracking-widest justify-center items-center h-screen `}
       >
         <p className=" text-center game text-4xl">
-          Selamat datang di website ku
+          {t("Welcome")}
         </p>
         <motion.button
           whileHover={{ scale: 1.2 }}
           whileTap={{ scale: 0.8 }}
           className=" game text-xl tracking-wide px-4 py-2"
           onClick={() => {
-            setStart(false), soundStart.play();
+            setStart(false)
           }}
         >
           Start
@@ -94,14 +85,13 @@ function App() {
         <div className=" lg:flex lg:w-[90vw] lg:mx-auto my-6 w-screen">
           {!isLarge ? (
             <Example
-              volume={volume}
               isOpen={isOpen}
               toggleOpen={toggleOpen}
               darkMode={darkMode}
             />
           ) : (
             <div className=" w-52">
-              <Sidebar darkMode={darkMode} volume={volume} />
+              <Sidebar darkMode={darkMode}  />
             </div>
           )}
           <motion.div
@@ -109,8 +99,6 @@ function App() {
             className={isOpen ? "blur-sm" : "blur-none lg:w-[80%] lg:ml-10 "}
           >
             <Router
-              setVolume={setVolume}
-              volume={volume}
               darkMode={darkMode}
               setDarkMode={setDarkMode}
               isOpen={isOpen}

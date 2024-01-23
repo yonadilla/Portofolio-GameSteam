@@ -1,9 +1,6 @@
 import { motion } from 'framer-motion';
-import useUpdateEffect from '../../../Hooks/useUpdateEffect';
-import { useEffect } from 'react';
-import {Howl} from 'howler';
 
-export default function FilterPc({isLarge, query, setQuery, darkMode, volume}) {
+export default function FilterPc({isLarge, query, setQuery, darkMode,}) {
   let tabs = [
     { id: "All", label: "All" },
     { id: "React", label: "React" },
@@ -12,14 +9,6 @@ export default function FilterPc({isLarge, query, setQuery, darkMode, volume}) {
   ];
   
 
-  useUpdateEffect(() => {
-  var sound = new Howl({
-    src: ["/assets/sound/deck_ui_tab_transition_01.wav"],
-    volume : volume,
-    preload : true
-  });
-  sound.play();
-  },[query])
   return (
     <div>
         {isLarge && (

@@ -1,8 +1,6 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import {Howl,} from 'howler';
-import useUpdateEffect from "../Hooks/useUpdateEffect";
 function Sidebar({darkMode, volume}) {
   const path = useLocation();
   const [activeLink, setActiveLink] = useState( path.pathname);
@@ -14,14 +12,6 @@ function Sidebar({darkMode, volume}) {
   ];
   
   
-  useUpdateEffect(() => {
-    var sound = new Howl({
-      src: ["/assets/sound/deck_ui_navigation.wav"],
-      volume : volume,
-      preload: true,
-    });
-    sound.play();
-    },[activeLink])
 
   return (
     <div className=" fixed top-0 w-full my-6">

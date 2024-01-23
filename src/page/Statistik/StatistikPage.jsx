@@ -12,7 +12,6 @@ export default function StatistikPage() {
       <motion.div
       initial={{y : "-200vw"}}
       animate={{y : "0", transition: { type: "tween", duration: 0.3 }}}
-      exit={{y : "-200vw"}}
       className=" lg:w-[30%] bg-slate-200 shadow-2xl dark:bg-gray-500 rounded-md h-[50%] p-2 flex flex-col gap-6">
         <Profile />
         <Language/>
@@ -21,7 +20,6 @@ export default function StatistikPage() {
       <motion.div
       initial={{x : "150vw"}}
       animate={{x : "0", transition: { type: "tween", duration: 0.3 }}}
-      exit={{x : "150vw"}}
       className=" lg:w-[65%] shadow-2xl bg-slate-200 dark:bg-gray-500 rounded-md h-[50%] p-2 flex flex-col gap-6 px-5 mb-8 lg:mb-0">
         <CountSolved />
         <AcSubmition/>

@@ -10,44 +10,9 @@ import {
   imgTictac,
 } from "../../../Data/dataImg";
 import Dialog from "../../../components/Dialog";
-import {Howl} from 'howler';
-import useUpdateEffect from "../../../Hooks/useUpdateEffect";
 
-
-export default function ProjectImg({
-  query,
-  setModal,
-  t,
-  modal,
-  volume,
-  isLarge,
-}) {
-  const ref = useRef()
-
-  const soundHover = new Howl({
-    src : ["/assets/sound/deck_ui_misc_10.wav"],
-    volume : volume,
-    preload : true,
-  })
-
-  useUpdateEffect(() => {
-    const soundModal = new Howl({
-      src : ["/assets/sound/deck_ui_show_modal.mp3"],
-      volume : volume,
-      preload : true,
-    });
-
-    const soundHide = new Howl({
-      src : ["/assets/sound/deck_ui_hide_modal.wav"],
-      volume : volume,
-      preload : true,
-    });
-
-    if (modal) {
-      soundModal.play()
-    }
-    soundHide.play()
-  },[modal])
+export default function ProjectImg({ query, setModal, t, modal, isLarge }) {
+  const ref = useRef();
 
   useEffect(() => {
     if (modal !== null) {
@@ -74,19 +39,16 @@ export default function ProjectImg({
                 >
                   <motion.div
                     layoutId={modal.modal}
-                    onMouseEnter={() => {
-                      isLarge ? soundHover.play() : null;
-                    }}
                     whileHover={{
                       scale: [1, 1.1, 1],
                       transition: { type: "tween", duration: 0.1 },
                     }}
-                    
                     transition={{ layout: { duration: 0.4, type: "tween" } }}
                     onClick={() => {
-                      setModal(modal.modal), stop();
+                      setModal(modal.modal);
                     }}
-                    className="hover:border-solid hover:border-4 border-black hover:rounded-md hover:dark:border-gray-500 hover:dark:shadow-[0_0_20px_5px_rgba(8,_112,_184,_0.7)]  p-1">
+                    className="hover:border-solid hover:border-4 border-black hover:rounded-md hover:dark:border-gray-500 hover:dark:shadow-[0_0_20px_5px_rgba(8,_112,_184,_0.7)]  p-1"
+                  >
                     <motion.img
                       src={modal.screenShoot}
                       alt=""
@@ -103,7 +65,6 @@ export default function ProjectImg({
         {modal == 1 && (
           <>
             <Dialog
-              volume={volume}
               Title={"First Portofolio"}
               detail={t("detail_portofolio")}
               imageCoursel={imagePortofolio}
@@ -121,7 +82,6 @@ export default function ProjectImg({
         {modal == 2 && (
           <>
             <Dialog
-              volume={volume}
               Title={"Game tic-tac-to"}
               detail={t("detail_tic_tac")}
               imageCoursel={imgTictac}
@@ -139,7 +99,6 @@ export default function ProjectImg({
         {modal == 3 && (
           <>
             <Dialog
-              volume={volume}
               Title={"my-team page"}
               detail={t("detail_my_team")}
               imageCoursel={imgMyTeam}
@@ -157,7 +116,6 @@ export default function ProjectImg({
         {modal == 4 && (
           <>
             <Dialog
-              volume={volume}
               Title={"quote generator"}
               detail={t("detail_quote")}
               imageCoursel={imgQuote}
@@ -175,7 +133,6 @@ export default function ProjectImg({
         {modal == 5 && (
           <>
             <Dialog
-              volume={volume}
               Title={"Not found page"}
               detail={t("detail_not_found")}
               imageCoursel={imgNotFound}
@@ -193,7 +150,6 @@ export default function ProjectImg({
         {modal == 6 && (
           <>
             <Dialog
-              volume={volume}
               Title={"Interior page"}
               detail={t("detail_my_interior")}
               imageCoursel={imgInterior}
