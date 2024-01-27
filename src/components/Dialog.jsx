@@ -49,7 +49,7 @@ export default function Dialog({
                       <img
                         key={image}
                         src={image}
-                        className="aspect-[3/2] object-cover"
+                        className="aspect-[3/2] "
                       />
                     ))}
                   </motion.div>
@@ -101,8 +101,8 @@ export default function Dialog({
             &times;
           </button>
           <div className=" flex flex-col gap-2 p-5">
-            <p>{Title}</p>
-            <p>{TechStack}</p>
+            <p className=" uppercase">{Title}</p>
+            <p className=" font-bold">{TechStack}</p>
             <motion.p>{detail}</motion.p>
             <div className=" lg:relative  lg:top-10 flex gap-6 items-stretch">
               <motion.p

@@ -1,50 +1,85 @@
 export const DataModal = [
-    {
-        "id" : 1,
-        "modal" : 1,
-        "Title": "First Portofolio",
-        "techStack" : "ReactJS All",
-        "gif" : "assets/website Gif.webp",
-        "screenShoot" : "assets/Screenshot (57).png",
-    },
-    {
-        "id" : 2,
-        "modal" : 2,
-        "Title": "Game tic-tac-to",
-        "techStack" : "ReactJS All",
-        "gif" : "assets/Tic-tac-to.webp",
-        "screenShoot" : "assets/tic-tac-to/Screenshot (58).png"
-    },
-    {
-        "id" : 3,
-        "modal" : 3,
-        "Title": "my-team page",
-        "techStack" : "Others All",
-        "gif" : "assets/my_team/my-team.webp",
-        "screenShoot" :  "assets/my_team/Screenshot (70).png",
-    },
-    {
-        "id": 4,
-        "modal" : 4,
-        "Title" : "quote generator",
-        "techStack" : "JavaScript All",
-        "gif" : "assets/quoute-generator/Desain tanpa judul (2).webp",
-        "screenShoot" : "assets/quoute-generator/Screenshot (76).png"
-    }
-    ,
-    {
-        "id": 5,
-        "modal" : 5,
-        "Title" : "Not found page ",
-        "techStack" : "Others All",
-        "gif" : "assets/not_found/not-found.webp",
-        "screenShoot" : "assets/not_found/Screenshot (66).png"
-    },{
-        "id": 6,
-        "modal" : 6,
-        "Title" : "Interior page ",
-        "techStack" : "JavaScript All",
-        "gif" : "assets/my_interior/interior.webp",
-        "screenShoot" : "assets/my_interior/Screenshot (73).png"
-    }
-]
+  {
+    id: 1,
+    modal: 1,
+    Title: "Not found page ",
+    techStack: "Others All",
+    gif: "assets/not_found/not-found.webp",
+    screenShoot: "assets/not_found/Screenshot (66).png",
+  },
+  {
+    id: 2,
+    modal: 2,
+    Title: "my-team page",
+    techStack: "Others All",
+    gif: "assets/my_team/my-team.webp",
+    screenShoot: "assets/my_team/Screenshot (70).png",
+  },
+  {
+    id: 3,
+    modal: 3,
+    Title: "Interior page ",
+    techStack: "JavaScript All",
+    gif: "assets/my_interior/interior.webp",
+    screenShoot: "assets/my_interior/Screenshot (73).png",
+  },
+  {
+    id: 4,
+    modal: 4,
+    Title: "quote generator",
+    techStack: "JavaScript All",
+    gif: "assets/quoute-generator/Desain tanpa judul (2).webp",
+    screenShoot: "assets/quoute-generator/Screenshot (76).png",
+  },
+  {
+    id: 5,
+    modal: 5,
+    Title: "Game tic-tac-to",
+    techStack: "ReactJS All",
+    gif: "assets/Tic-tac-to.webp",
+    screenShoot: "assets/tic-tac-to/Screenshot (58).png",
+  },
+  {
+    id: 6,
+    modal: 6,
+    Title: "First Portofolio",
+    techStack: "ReactJS All",
+    gif: "assets/website Gif.webp",
+    screenShoot: "assets/Screenshot (57).png",
+  },
+  {
+    id: 7,
+    modal: 7,
+    Title: "Multi-Select",
+    techStack: "TypeScript All",
+    screenShoot: "assets/multi-select/Screenshot (99).png",
+  },
+  {
+    id: 8,
+    modal: 8,
+    Title: "E-CommerceStore",
+    techStack: "TypeScript Next.js All",
+    screenShoot: "assets/e-commerce/Screenshot (84).png",
+  },
+  {
+    id: 9,
+    modal: 9,
+    Title: "Admin dashboard E-commerce",
+    techStack: "TypeScript Next.js All",
+    screenShoot: "assets/admin_e-commerce/Screenshot (90).png",
+  },
+  {
+    id: 10,
+    modal: 10,
+    Title: " Express js",
+    techStack: "Node All",
+    screenShoot: "assets/LeetCode/Screenshot (131).png",
+  },
+  {
+    id: 11,
+    modal: 11,
+    Title: " Restfull api",
+    techStack: "Springboot SpringBoot All",
+    screenShoot: "assets/Java Springboot/Screenshot (114).png",
+  },
+];

@@ -55,7 +55,21 @@ export default function FilterMobile({
     setIsOpen(false);
   }
 
+  let tabs = [
+    { id: "All", label: "All" },
+    { id: "JavaScript", label: "JavaScript" },
+    { id: "TypeScript", label: "TypeScript" },
+    { id: "Springboot", label: "Java" },
+    { id: "Others", label: "Others" },
+  ];
+  
+  let label ;
 
+  if (query == "Springboot") {
+    label = "Java"
+  } else {
+    label = query
+  }
   return (
     <div>
       <nav className=" w-fit" ref={scope}>
@@ -66,7 +80,7 @@ export default function FilterMobile({
                 className=" border-solid border-black flex rounded-lg justify-between px-2 items-center border w-32 text-black dark:text-white  dark:border-white"
                 onClick={() => {setIsOpen(!isOpen) }}
               >
-                {query}
+                {label}
                 <div className="arrow" style={{ transformOrigin: "50% 55%" }}>
                   <svg width="15" height="15" viewBox="0 0 20 20">
                     <path
@@ -86,10 +100,14 @@ export default function FilterMobile({
           }}
           className={" translate-y-5 p-3 w-32 z-10 bg-white dark:bg-black "}
         >
-            <li onClick={() => handleFilter("All")}>All </li>
-            <li onClick={() => handleFilter("ReactJS")}>React js</li>
-            <li onClick={() => handleFilter("JavaScript")}>JavaScript</li>
-            <li onClick={() => handleFilter("Others")}>Others</li>
+            {tabs.map((tab, index) => (
+              <li
+              key={index}
+              onClick={() => handleFilter(tab.id)}
+              >
+                {tab.label}
+              </li>
+            ))}
         </ul>
       </nav>
     </div>

@@ -3,8 +3,9 @@ import { motion } from 'framer-motion';
 export default function FilterPc({isLarge, query, setQuery, darkMode,}) {
   let tabs = [
     { id: "All", label: "All" },
-    { id: "React", label: "React" },
     { id: "JavaScript", label: "JavaScript" },
+    { id: "TypeScript", label: "TypeScript" },
+    { id: "SpringBoot", label: "Java" },
     { id: "Others", label: "Others" },
   ];
   
@@ -13,7 +14,7 @@ export default function FilterPc({isLarge, query, setQuery, darkMode,}) {
     <div>
         {isLarge && (
               <div
-                className={`translate-x-20   ${
+                className={` ${
                   darkMode == true ? " shadow-neon-pink" : " border-black"
                 } dark:bg-[#FF53cd] bg-black rounded-2xl p-1 `}
               >
@@ -21,7 +22,7 @@ export default function FilterPc({isLarge, query, setQuery, darkMode,}) {
                   {tabs.map((tab) => (
                     <button
                       key={tab.id}
-                      onClick={() => {setQuery(tab.label)}}
+                      onClick={() => {setQuery(tab.id)}}
                       className={`${
                         query == tab.label
                           ? ""

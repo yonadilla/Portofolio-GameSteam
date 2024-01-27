@@ -1,5 +1,3 @@
-import { data } from "autoprefixer";
-import { use } from "i18next";
 import { useEffect, useState } from "react";
 
 export default function Language() {

@@ -3,10 +3,15 @@ import React, { useEffect, useRef } from "react";
 import { DataModal } from "../../../Data/dataModal";
 import {
   imagePortofolio,
+  imgAdmin,
   imgInterior,
+  imgLeetCode,
   imgMyTeam,
   imgNotFound,
   imgQuote,
+  imgRestfull,
+  imgSelect,
+  imgStore,
   imgTictac,
 } from "../../../Data/dataImg";
 import Dialog from "../../../components/Dialog";
@@ -23,7 +28,7 @@ export default function ProjectImg({ query, setModal, t, modal, isLarge }) {
   return (
     <>
       <AnimatePresence mode="wait">
-        <motion.div className=" pb-28 h-fit  flex flex-col gap-5 lg:relative lg:h-96 lg:top-5 lg:flex lg:flex-wrap lg:flex-row">
+        <motion.div className=" pb-28 h-fit z-0  flex flex-col gap-5 lg:relative lg:h-96 lg:top-5 lg:flex lg:flex-wrap lg:flex-row">
           {DataModal.filter((modal) => modal.techStack.includes(query)).map(
             (modal) => {
               return (
@@ -52,7 +57,7 @@ export default function ProjectImg({ query, setModal, t, modal, isLarge }) {
                     <motion.img
                       src={modal.screenShoot}
                       alt=""
-                      className=" lg:h-40"
+                      className=" lg:h-40 -z-20"
                     />
                   </motion.div>
                 </motion.div>
@@ -65,15 +70,15 @@ export default function ProjectImg({ query, setModal, t, modal, isLarge }) {
         {modal == 1 && (
           <>
             <Dialog
-              Title={"First Portofolio"}
-              detail={t("detail_portofolio")}
-              imageCoursel={imagePortofolio}
-              TechStack={"HTML CSS Tailwincss ReactJS daisy ui"}
+              Title={"Not found page"}
+              detail={t("detail_not_found")}
+              imageCoursel={imgNotFound}
+              TechStack={"HTML CSS"}
               layoutId={1}
               setModal={setModal}
               openModal={modal}
-              githubUrl={"https://github.com/yonadilla/portofolio"}
-              demoUrl={"https://yonadilla.github.io/portofolio/"}
+              demoUrl={"https://yonadilla.github.io/404/"}
+              githubUrl={"https://github.com/yonadilla/404"}
             />
           </>
         )}
@@ -82,15 +87,15 @@ export default function ProjectImg({ query, setModal, t, modal, isLarge }) {
         {modal == 2 && (
           <>
             <Dialog
-              Title={"Game tic-tac-to"}
-              detail={t("detail_tic_tac")}
-              imageCoursel={imgTictac}
-              TechStack={"HTML CSS ReactJS"}
+              Title={"my-team page"}
+              detail={t("detail_my_team")}
+              imageCoursel={imgMyTeam}
+              TechStack={"HTML CSS"}
               layoutId={2}
               setModal={setModal}
               openModal={modal}
-              demoUrl={"https://yonadilla.github.io/tic-tac-to/"}
-              githubUrl={"https://github.com/yonadilla/tic-tac-to"}
+              demoUrl={"https://yonadilla.github.io/my-team/"}
+              githubUrl={"https://github.com/yonadilla/my-team"}
             />
           </>
         )}
@@ -99,15 +104,15 @@ export default function ProjectImg({ query, setModal, t, modal, isLarge }) {
         {modal == 3 && (
           <>
             <Dialog
-              Title={"my-team page"}
-              detail={t("detail_my_team")}
-              imageCoursel={imgMyTeam}
-              TechStack={"HTML CSS"}
+              Title={"Interior page"}
+              detail={t("detail_my_interior")}
+              imageCoursel={imgInterior}
+              TechStack={"HTML CSS JavaScript"}
               layoutId={3}
               setModal={setModal}
               openModal={modal}
-              demoUrl={"https://yonadilla.github.io/my-team/"}
-              githubUrl={"https://github.com/yonadilla/my-team"}
+              demoUrl={"https://yonadilla.github.io/interior-challenges/"}
+              githubUrl={"https://github.com/yonadilla/interior-challenges"}
             />
           </>
         )}
@@ -133,15 +138,15 @@ export default function ProjectImg({ query, setModal, t, modal, isLarge }) {
         {modal == 5 && (
           <>
             <Dialog
-              Title={"Not found page"}
-              detail={t("detail_not_found")}
-              imageCoursel={imgNotFound}
-              TechStack={"HTML CSS"}
+              Title={"Game tic-tac-to"}
+              detail={t("detail_tic_tac")}
+              imageCoursel={imgTictac}
+              TechStack={"HTML CSS ReactJS"}
               layoutId={5}
               setModal={setModal}
               openModal={modal}
-              demoUrl={"https://yonadilla.github.io/404/"}
-              githubUrl={"https://github.com/yonadilla/404"}
+              demoUrl={"https://yonadilla.github.io/tic-tac-to/"}
+              githubUrl={"https://github.com/yonadilla/tic-tac-to"}
             />
           </>
         )}
@@ -150,15 +155,100 @@ export default function ProjectImg({ query, setModal, t, modal, isLarge }) {
         {modal == 6 && (
           <>
             <Dialog
-              Title={"Interior page"}
-              detail={t("detail_my_interior")}
-              imageCoursel={imgInterior}
-              TechStack={"HTML CSS JavaScript"}
+              Title={"First Portofolio"}
+              detail={t("detail_portofolio")}
+              imageCoursel={imagePortofolio}
+              TechStack={"HTML CSS Tailwincss ReactJS daisy ui"}
               layoutId={6}
               setModal={setModal}
               openModal={modal}
-              demoUrl={"https://yonadilla.github.io/interior-challenges/"}
-              githubUrl={"https://github.com/yonadilla/interior-challenges"}
+              githubUrl={"https://github.com/yonadilla/portofolio"}
+              demoUrl={"https://yonadilla.github.io/portofolio/"}
+            />
+          </>
+        )}
+      </AnimatePresence>
+      <AnimatePresence mode="wait">
+        {modal == 7 && (
+          <>
+            <Dialog
+              Title={"Multi-select"}
+              detail={t("detail_multiselect")}
+              imageCoursel={imgSelect}
+              TechStack={"HTML ReactJS TypesScript"}
+              layoutId={7}
+              setModal={setModal}
+              openModal={modal}
+              githubUrl={"https://github.com/yonadilla/portofolio"}
+              demoUrl={"https://yonadilla.github.io/portofolio/"}
+            />
+          </>
+        )}
+      </AnimatePresence>
+      <AnimatePresence mode="wait">
+        {modal == 8 && (
+          <>
+            <Dialog
+              Title={"E-commerceStore"}
+              detail={t("detail_store")}
+              imageCoursel={imgStore}
+              TechStack={"HTML Tailwindcss ReactJS TypesScript Next js axios headless-ui midtrans"}
+              layoutId={8}
+              setModal={setModal}
+              openModal={modal}
+              githubUrl={"https://github.com/yonadilla/portofolio"}
+              demoUrl={"https://yonadilla.github.io/portofolio/"}
+            />
+          </>
+        )}
+      </AnimatePresence>
+      <AnimatePresence mode="wait">
+        {modal == 9 && (
+          <>
+            <Dialog
+              Title={"Admin E-commerceStore"}
+              detail={t("detail_admin")}
+              imageCoursel={imgAdmin}
+              TechStack={"Tailwindcss ReactJS TypesScript Next js Clerk shadcn-ui prisma neon "}
+              layoutId={9}
+              setModal={setModal}
+              openModal={modal}
+              githubUrl={"https://github.com/yonadilla/portofolio"}
+              demoUrl={"https://yonadilla.github.io/portofolio/"}
+            />
+          </>
+        )}
+      </AnimatePresence>
+      <AnimatePresence mode="wait">
+        {modal == 10 && (
+          <>
+            <Dialog
+              Title={"Node.js LeetCode"}
+              detail={t("detail_restfull")}
+              imageCoursel={imgLeetCode}
+              TechStack={"Node.js Express.js Graphql "}
+              layoutId={10}
+              setModal={setModal}
+              openModal={modal}
+              githubUrl={"https://github.com/yonadilla/portofolio"}
+              demoUrl={"https://yonadilla.github.io/portofolio/"}
+            />
+          </>
+        )}
+      </AnimatePresence>
+      <AnimatePresence mode="wait">
+        {modal == 11 && (
+          <>
+            <Dialog
+              Title={"Spring boot RestFull API"}
+              detail={t("detail_restfull")}
+              imageCoursel={imgRestfull}
+              TechStack={"Java SpringBoot PostgreSql Junit "}
+              layoutId={11}
+              setModal={setModal}
+              openModal={modal}
+              githubUrl={"https://github.com/yonadilla/portofolio"}
+              demoUrl={"https://yonadilla.github.io/portofolio/"}
             />
           </>
         )}
