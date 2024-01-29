@@ -10,14 +10,13 @@ export default function Dialog({
   demoUrl,
   imageCoursel,
   layoutId,
+  children,
 }) {
   const [index, setIndex] = useState(0);
   const ref = useRef();
-  
 
-    useLayoutEffect(() => {
-      if (openModal) {
-      
+  useLayoutEffect(() => {
+    if (openModal) {
       ref.current?.showModal();
     } else {
       ref.current?.close();
@@ -46,11 +45,7 @@ export default function Dialog({
                     className="flex"
                   >
                     {imageCoursel.map((image) => (
-                      <img
-                        key={image}
-                        src={image}
-                        className="aspect-[3/2] "
-                      />
+                      <img key={image} src={image} className="aspect-[3/2] " />
                     ))}
                   </motion.div>
                   <AnimatePresence initial={false}>
@@ -80,7 +75,7 @@ export default function Dialog({
                         className="absolute right-2 top-1/2 -mt-4 flex h-8 w-8 items-center justify-center rounded-full bg-white"
                         onClick={() => setIndex(index + 1)}
                       >
-                        <div className="h-6 w-6" >
+                        <div className="h-6 w-6">
                           <img src="/icons8-forward-50.png" alt="" />
                         </div>
                       </motion.button>
@@ -95,7 +90,7 @@ export default function Dialog({
           <button
             className=" bg-white rounded-full inline-block w-8 h-8 z-30 absolute right-0 top-0 m-3"
             onClick={() => {
-              setModal(null)
+              setModal(null);
             }}
           >
             &times;
@@ -104,24 +99,8 @@ export default function Dialog({
             <p className=" uppercase">{Title}</p>
             <p className=" font-bold">{TechStack}</p>
             <motion.p>{detail}</motion.p>
-            <div className=" lg:relative  lg:top-10 flex gap-6 items-stretch">
-              <motion.p
-              className=" border-2 border-solid border-black hover:bg-green-300 px-2">
-                <a
-                  href={githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-
-                Github
-                </a>
-              </motion.p>
-              <p className="border-2 border-solid border-black hover:bg-slate-400 px-2">
-                <a href={demoUrl} target="_blank" rel="noopener noreferrer">
-
-                Demo
-                </a>
-              </p>
+            <div className=" flex gap-3">
+            {children}
             </div>
           </div>
         </div>

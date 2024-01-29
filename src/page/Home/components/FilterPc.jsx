@@ -5,6 +5,7 @@ export default function FilterPc({isLarge, query, setQuery, darkMode,}) {
     { id: "All", label: "All" },
     { id: "JavaScript", label: "JavaScript" },
     { id: "TypeScript", label: "TypeScript" },
+    { id: "Node", label: "Node" },
     { id: "SpringBoot", label: "Java" },
     { id: "Others", label: "Others" },
   ];

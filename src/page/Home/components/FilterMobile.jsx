@@ -59,6 +59,7 @@ export default function FilterMobile({
     { id: "All", label: "All" },
     { id: "JavaScript", label: "JavaScript" },
     { id: "TypeScript", label: "TypeScript" },
+    { id: "Node", label: "Node" },
     { id: "Springboot", label: "Java" },
     { id: "Others", label: "Others" },
   ];

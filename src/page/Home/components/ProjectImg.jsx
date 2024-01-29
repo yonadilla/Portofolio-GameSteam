@@ -15,6 +15,7 @@ import {
   imgTictac,
 } from "../../../Data/dataImg";
 import Dialog from "../../../components/Dialog";
+import Button from "../../../components/Button";
 
 export default function ProjectImg({ query, setModal, t, modal, isLarge }) {
   const ref = useRef();
@@ -77,9 +78,10 @@ export default function ProjectImg({ query, setModal, t, modal, isLarge }) {
               layoutId={1}
               setModal={setModal}
               openModal={modal}
-              demoUrl={"https://yonadilla.github.io/404/"}
-              githubUrl={"https://github.com/yonadilla/404"}
-            />
+            >
+              <Button link={"https://github.com/yonadilla/404"}>Github</Button>
+              <Button link={"https://yonadilla.github.io/404/"}>Demo</Button>
+            </Dialog>
           </>
         )}
       </AnimatePresence>
@@ -94,9 +96,14 @@ export default function ProjectImg({ query, setModal, t, modal, isLarge }) {
               layoutId={2}
               setModal={setModal}
               openModal={modal}
-              demoUrl={"https://yonadilla.github.io/my-team/"}
-              githubUrl={"https://github.com/yonadilla/my-team"}
-            />
+            >
+              <Button link={"https://yonadilla.github.io/my-team/"}>
+                Github
+              </Button>
+              <Button link={"https://github.com/yonadilla/my-team"}>
+                Demo
+              </Button>
+            </Dialog>
           </>
         )}
       </AnimatePresence>
@@ -111,9 +118,14 @@ export default function ProjectImg({ query, setModal, t, modal, isLarge }) {
               layoutId={3}
               setModal={setModal}
               openModal={modal}
-              demoUrl={"https://yonadilla.github.io/interior-challenges/"}
-              githubUrl={"https://github.com/yonadilla/interior-challenges"}
-            />
+            >
+              <Button link={"https://yonadilla.github.io/interior-challenges/"}>
+                Github
+              </Button>
+              <Button link={"https://github.com/yonadilla/interior-challenges"}>
+                Demo
+              </Button>
+            </Dialog>
           </>
         )}
       </AnimatePresence>
@@ -128,9 +140,16 @@ export default function ProjectImg({ query, setModal, t, modal, isLarge }) {
               layoutId={4}
               setModal={setModal}
               openModal={modal}
-              demoUrl={"https://yonadilla.github.io/quote-random/"}
+              demoUrl={""}
               githubUrl={"https://github.com/yonadilla/quote-random"}
-            />
+            >
+              <Button link={"https://yonadilla.github.io/quote-random/"}>
+                Github
+              </Button>
+              <Button link={"https://github.com/yonadilla/quote-random"}>
+                Demo
+              </Button>
+            </Dialog>
           </>
         )}
       </AnimatePresence>
@@ -145,9 +164,14 @@ export default function ProjectImg({ query, setModal, t, modal, isLarge }) {
               layoutId={5}
               setModal={setModal}
               openModal={modal}
-              demoUrl={"https://yonadilla.github.io/tic-tac-to/"}
-              githubUrl={"https://github.com/yonadilla/tic-tac-to"}
-            />
+            >
+              <Button link={"https://yonadilla.github.io/tic-tac-to/"}>
+                Github
+              </Button>
+              <Button link={"https://github.com/yonadilla/tic-tac-to"}>
+                Demo
+              </Button>
+            </Dialog>
           </>
         )}
       </AnimatePresence>
@@ -162,9 +186,15 @@ export default function ProjectImg({ query, setModal, t, modal, isLarge }) {
               layoutId={6}
               setModal={setModal}
               openModal={modal}
-              githubUrl={"https://github.com/yonadilla/portofolio"}
-              demoUrl={"https://yonadilla.github.io/portofolio/"}
-            />
+             
+            >
+              <Button link={"https://github.com/yonadilla/portofolio"}>
+                Github
+              </Button>
+              <Button link={"https://yonadilla.github.io/portofolio/"}>
+                Demo
+              </Button>
+            </Dialog>
           </>
         )}
       </AnimatePresence>
@@ -179,9 +209,14 @@ export default function ProjectImg({ query, setModal, t, modal, isLarge }) {
               layoutId={7}
               setModal={setModal}
               openModal={modal}
-              githubUrl={"https://github.com/yonadilla/portofolio"}
-              demoUrl={"https://yonadilla.github.io/portofolio/"}
-            />
+            >
+              <Button link={"https://github.com/yonadilla/multi-select"}>
+                Github
+              </Button>
+              <Button link={"https://multi-select-mocha.vercel.app/"}>
+                Demo
+              </Button>
+            </Dialog>
           </>
         )}
       </AnimatePresence>
@@ -192,13 +227,21 @@ export default function ProjectImg({ query, setModal, t, modal, isLarge }) {
               Title={"E-commerceStore"}
               detail={t("detail_store")}
               imageCoursel={imgStore}
-              TechStack={"HTML Tailwindcss ReactJS TypesScript Next js axios headless-ui midtrans"}
+              TechStack={
+                "HTML Tailwindcss ReactJS TypesScript Next js Axios Headless-ui Midtrans"
+              }
               layoutId={8}
               setModal={setModal}
               openModal={modal}
-              githubUrl={"https://github.com/yonadilla/portofolio"}
-              demoUrl={"https://yonadilla.github.io/portofolio/"}
-            />
+              
+            >
+              <Button link={"https://github.com/yonadilla/e-commerce-store"}>
+                Github
+              </Button>
+              <Button link={"https://e-commerce-store-nu-five.vercel.app/"}>
+                Demo
+              </Button>
+            </Dialog>
           </>
         )}
       </AnimatePresence>
@@ -209,13 +252,20 @@ export default function ProjectImg({ query, setModal, t, modal, isLarge }) {
               Title={"Admin E-commerceStore"}
               detail={t("detail_admin")}
               imageCoursel={imgAdmin}
-              TechStack={"Tailwindcss ReactJS TypesScript Next js Clerk shadcn-ui prisma neon "}
+              TechStack={
+                "Tailwindcss ReactJS TypesScript Next js Clerk Shadcn-ui Prisma Neon "
+              }
               layoutId={9}
               setModal={setModal}
               openModal={modal}
-              githubUrl={"https://github.com/yonadilla/portofolio"}
-              demoUrl={"https://yonadilla.github.io/portofolio/"}
-            />
+            >
+              <Button link={"https://github.com/yonadilla/e-commerce-admin"}>
+                Github
+              </Button>
+              <Button link={"https://e-commerce-admin-lime.vercel.app/e73400ba-7f39-4a9f-875d-339388b96eed"}>
+                Demo
+              </Button>
+            </Dialog>
           </>
         )}
       </AnimatePresence>
@@ -224,15 +274,17 @@ export default function ProjectImg({ query, setModal, t, modal, isLarge }) {
           <>
             <Dialog
               Title={"Node.js LeetCode"}
-              detail={t("detail_restfull")}
+              detail={t("detail_leet")}
               imageCoursel={imgLeetCode}
               TechStack={"Node.js Express.js Graphql "}
               layoutId={10}
               setModal={setModal}
               openModal={modal}
-              githubUrl={"https://github.com/yonadilla/portofolio"}
-              demoUrl={"https://yonadilla.github.io/portofolio/"}
-            />
+            >
+              <Button link={"https://github.com/yonadilla/serverLeetcode"}>
+                Github
+              </Button>
+            </Dialog>
           </>
         )}
       </AnimatePresence>
@@ -247,9 +299,11 @@ export default function ProjectImg({ query, setModal, t, modal, isLarge }) {
               layoutId={11}
               setModal={setModal}
               openModal={modal}
-              githubUrl={"https://github.com/yonadilla/portofolio"}
-              demoUrl={"https://yonadilla.github.io/portofolio/"}
-            />
+            >
+              <Button link={"https://github.com/yonadilla/Learn_SpringBoot"}>
+                Github
+              </Button>
+            </Dialog>
           </>
         )}
       </AnimatePresence>
