@@ -7,7 +7,7 @@
   "detail_tic_tac": "This is the tic-tac-toe game project I learned from the official React.js website. Here, I slightly modified it into several separate files unlike in the tutorial, and from this project, I learned how to connect values ​​through props between components.",
   "detail_multiselect": "Result of a simple TypeScript learning project with additional keyboard feature.",
   "detail_store": "Deeper TypeScript learning project by creating an E-commerce connected to Midtrans as a payment gateway and also connected to an admin dashboard to manage content, with Next.js as the framework.",
-  "detail_admin": "An admin dashboard connected to the previous e-commerce project to manage what content to display. This project uses Clerk for authentication and Prisma as ORM.",
+  "detail_admin": "An admin dashboard connected to the previous e-commerce project to manage what content to display. This project uses Clerk for authentication and Prisma as ORM and of course there is API that can be used to create E-commerce as a front-end.",
   "detail_restfull": "A RestFull API project with Java and Spring Boot as the framework, Postgres for the database, and Junit for testing. This project uses MVC as the architectural design.",
   "detail_leet": "I created this project to fetch data from LeetCode that I want to display on my portfolio. I only spent one day learning to make this project so it's still very simple.",
   "aboutme": "I am Yon, a 24-year-old web developer based in Blora. Despite graduating from a vocational school in Accounting, my true passion has always been coding. I am known for my enthusiastic and diligent pursuit of self-directed learning, and I am committed to making a significant impact in the world of web development.   ",
